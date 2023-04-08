@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const controller = require("../controllers/productsControllers")
 
-router.get("/product", controller.products)
+router.get("/products", controller.products)
 
 router.get("/search-results", controller.serchResults)
 
