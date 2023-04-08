@@ -5,10 +5,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
-        comments: {
+        comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
-        }
+        }]
 
     },
     {
@@ -16,10 +16,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
-        comments: {
+        comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
-        }
+        }]
 
     },
     {
@@ -27,10 +27,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
-        comments: {
+        comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
-        }
+        }]
 
     },
     {
@@ -38,10 +38,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
-        comments: {
+        comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
-        }
+        }]
 
     },
     {
@@ -49,10 +49,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
-        comments: {
+        comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
-        }
+        }]
 
     },
     {
@@ -60,10 +60,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
-        comments: {
+        comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
-        }
+        }]
 
     },
     {
@@ -71,10 +71,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '8 usd',
-        comments: {
+        comments: [{
             user: 'aguscapo10',
             comentario: "Llego vencida, un asco. Quiero reembolso"
-        }
+        }]
 
     },
     {
@@ -82,10 +82,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '25 usd',
-        comments: {
+        comments: [{
             user: 'Tomas',
             comentario: "Recomendado"
-        }
+        }]
 
     },
     {
@@ -93,10 +93,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '100 usd',
-        comments: {
+        comments: [{
             user: 'Agustin',
             comentario: "Excelente, llego en perfecto estado"
-        }
+        }]
 
     },
     {
@@ -104,10 +104,10 @@ const data = {
         imgUrl: '/ProyectoIntegrador2/ProyectoChiche/public/images/products/img-cafetera-moulinex.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '50 usd',
-        comments: {
+        comments: [{
             user: 'Jose',
             comentario: "Muy caro. No recomendado"
-        }
+        }]
 
 },
 ]}
