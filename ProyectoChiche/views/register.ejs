@@ -7,12 +7,14 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+			<form action="profile.ejs" method="get">
+				<input type="text" name="email" placeholder="Email">
+				<input type="text" name="user" placeholder="Nombre Usuario">			
+				<input type="password" name="password" placeholder="Contraseña">
+				<input type="number" name="number" placeholder="DNI">
+				<input type="date" name="birthday" placeholder="Fecha Nacimiento">
+				<input type="text" name="profile" placeholder="Foto">
+			</form>
 
 <%- include("./partials/footer") %>
 	
