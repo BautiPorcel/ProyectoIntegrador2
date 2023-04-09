@@ -8,11 +8,11 @@ const controller = {
         },
 
     profile:function(req,res){
-        res.send("Aca tengo que poner el profile")
+        res.render("profile")
         },
 
     profileEdit:function(req,res){
-        res.send("Aca tengo que poner el edit-profile")
+        res.render("profile-edit")
         }
     
 

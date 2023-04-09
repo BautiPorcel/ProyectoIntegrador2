@@ -7,13 +7,14 @@
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form action="profile.ejs" method="get">
+			<form action="/users/profile" method="get">
 				<input type="text" name="email" placeholder="Email">
 				<input type="text" name="user" placeholder="Nombre Usuario">			
 				<input type="password" name="password" placeholder="Contraseña">
 				<input type="number" name="number" placeholder="DNI">
 				<input type="date" name="birthday" placeholder="Fecha Nacimiento">
 				<input type="text" name="profile" placeholder="Foto">
+				<input type="submit" >
 			</form>
 
 <%- include("./partials/footer") %>
