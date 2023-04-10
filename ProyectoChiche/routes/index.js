@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var controller = require('../controllers/indexControllers')
+
+router.get('/', controller.home )
+
+router.get('/headerLogueado',controller.headerLogeado)
+
+router.get("/Cuenta", controller.usuarioInfo)
 
 
-/* GET home page. */
-router.get('/', function(req, res) {
-  res.render('index');
-});
-
-module.exports = router;
+module.exports = router
