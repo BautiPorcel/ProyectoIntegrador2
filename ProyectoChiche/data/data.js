@@ -1,15 +1,13 @@
 
 const data = {
     usuarios: {
-        email:0,
-        contr:0,
-        usuario:0,
-        cumpleaños:0,
-        dni:0,
-        foto:0
+        email:'tchaiman@udesa.edu.ar',
+        contr:'maradona10',
+        usuario:'tchaiman',
+        cumpleaños:'2004-02-22',
+        dni:45582137,
+        foto:''
 },
-
-    comentario:0,
 
     productos: [{
         nombre:'Remera',
@@ -56,8 +54,7 @@ const data = {
 
     }
 ],
-
-productos2: [
+    productos2: [
 
     {
         nombre:'Remera',
@@ -125,5 +122,76 @@ productos2: [
         }]
 
 },
-]}
+],
+    comments: [{
+        comments1: [{
+            user: 'Pepe',
+            comentario: "Muy buen producto. Recomendado"
+        }, {user: 'Pepe',
+        comentario: "Muy buen producto. Recomendado"}]
+    }
+        ,{
+            comments2: [{
+                user: 'Pepe',
+                comentario: "Muy buen producto. Recomendado"
+            }, {user: 'Pepe',
+            comentario: "Muy buen producto. Recomendado"}]
+        }
+            ,{
+                comments3: [{
+                    user: 'Pepe',
+                    comentario: "Muy buen producto. Recomendado"
+                }, {user: 'Pepe',
+                comentario: "Muy buen producto. Recomendado"}]
+            }
+                ,{
+                    comments4: [{
+                        user: 'Pepe',
+                        comentario: "Muy buen producto. Recomendado"
+                    }, {user: 'Pepe',
+                    comentario: "Muy buen producto. Recomendado"}]
+                }
+                    ,{
+                        comments5: [{
+                            user: 'Pepe',
+                            comentario: "Muy buen producto. Recomendado"
+                        }, {user: 'Pepe',
+                        comentario: "Muy buen producto. Recomendado"}]
+                    },{
+                        comments6: [{
+                            user: 'Pepe',
+                            comentario: "Muy buen producto. Recomendado"
+                        }, {user: 'Pepe',
+                        comentario: "Muy buen producto. Recomendado"}]
+                    }
+                        ,{
+                            comments7: [{
+                                user: 'Pepe',
+                                comentario: "Muy buen producto. Recomendado"
+                            }, {user: 'Pepe',
+                            comentario: "Muy buen producto. Recomendado"}]
+                        }
+                            ,{
+                                comments8: [{
+                                    user: 'Pepe',
+                                    comentario: "Muy buen producto. Recomendado"
+                                }, {user: 'Pepe',
+                                comentario: "Muy buen producto. Recomendado"}]
+                            }
+                                ,{
+                                    comments9: [{
+                                        user: 'Pepe',
+                                        comentario: "Muy buen producto. Recomendado"
+                                    }, {user: 'Pepe',
+                                    comentario: "Muy buen producto. Recomendado"}]
+                                }
+                                    ,{
+                                        comments10: [{
+                                            user: 'Pepe',
+                                            comentario: "Muy buen producto. Recomendado"
+                                        }, {user: 'Pepe',
+                                        comentario: "Muy buen producto. Recomendado"}]
+                                    }
+  ],
+}
 module.exports = data
