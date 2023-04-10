@@ -7,10 +7,18 @@ const controller = {
           productos2 : data.productos2
         })
       },
+
     headerLogeado: function(req,res){
       res.render('headerLogueado')
+    },
+    
+    usuarioInfo: function(req,res){
+      const email = req.query.email
+      const contra = req.query.password
+      res.send(`Hola ${email}, tu contra es ${contra}`)
     }
 
 }
+
 
 module.exports = controller

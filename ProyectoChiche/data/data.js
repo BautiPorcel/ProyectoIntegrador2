@@ -1,5 +1,16 @@
+
 const data = {
-    usuarios: {},
+    usuarios: {
+        email:0,
+        contr:0,
+        usuario:0,
+        cumpleaños:0,
+        dni:0,
+        foto:0
+},
+
+    comentario:0,
+
     productos: [{
         nombre:'Remera',
         imgUrl: 'images/products/img-cafetera-moulinex.jpg',
