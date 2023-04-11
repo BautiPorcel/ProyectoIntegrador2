@@ -1,21 +1,32 @@
+const data = require('../data/data')
+
 const controller = {
     login:function(req,res){
-        res.render('login')
+        res.render('login',{
+            usuarioLogueado: false
+        })
         },
 
     registrer: function(req,res){
-        res.render('register')
+        res.render('register',{
+            usuarioLogueado: false
+        })
         },
 
     profile:function(req,res){
-        res.render("profile")
+        res.render("profile",{
+            productos: data.productos,
+            usuarioLogueado: true
+        })
         },
 
     profileEdit:function(req,res){
-        res.render("profile-edit")
+        res.render("profile-edit",{
+            usuarioLogueado: true
+        })
         },
     usuarioInfo: function(req,res){
-        
+
         const email = req.query.email
         const usuario = req.query.user
         const password = req.query.password
