@@ -11,16 +11,17 @@ const controller = {
 
     headerLogeado: function(req,res){
       res.render('headerLogueado',{
-        usuarioLogueado: true
+          productos: data.productos,
+          productos2 : data.productos2,
+          usuarioLogueado: true
       })
-      
     },
 
     usuarioInfo: function(req,res){
       const email = req.query.email
       const contra = req.query.password
-      res.render(`Hola ${email}, tu contra es ${contra}`)
-    }
+      res.render(`Hola ${email}, tu contra es ${contra}`
+      )}
 
 }
 

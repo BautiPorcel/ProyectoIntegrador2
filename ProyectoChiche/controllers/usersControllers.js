@@ -16,7 +16,8 @@ const controller = {
     profile:function(req,res){
         res.render("profile",{
             productos: data.productos,
-            usuarioLogueado: true
+            usuarioLogueado: true,
+            user: data.usuarios
         })
         },
 

@@ -1,63 +1,62 @@
 <%- include("./partials/head") %>
+<%- include("./partials/header") %>
 	<!-- Header -->
-	<header class="main-header">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-5 col-md-2">
-					<a href="/" class="main-header_home-link">
-						<img src="./images/logo-mercado-liebre.svg">
-					</a>
-				</div>
-	
-				<div class="col-7 col-md-6">
-					<form action="" method="GET" class="search-form">
-						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
-						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-					</form>
-				</div>
-	
-				<div class="col-12 col-md-4">
-					<a class="main-header_credit-link">
-						<i class="fas fa-hand-holding-usd"></i>
-						Todas las opiniones en un solo lugar.
-					</a>
-				</div>
+	<div class="banner">
+		<img src="public/images/img-home-banner" alt="">
+	</div>
+	<!-- /Banner -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Novedades</h2>
 			</div>
-	
-			<button class="btn-toggle-navbar">
-				<i class="fas fa-bars"></i>
-			</button>
-	
-			<nav class="main-navbar">
-				<ul class="left-navbar">
-					<li><a href="/">Todos los productos</a></li>
-					<li><a href="/prod/product-add">Cargar productos</a></li>
-				</ul>
-	
-				<ul class="right-navbar">
-					<li><a href="/users/profile">
-							Nombre del usuario <i class="fas fa-user"></i>
-						</a>
-					</li>
-					<li>
-						<form action="" method="post">
-							<button class="logout" type="submit">
-								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-							</button>
-						</form>
-					</li>
-					<!-- Solo deslogueado <li>
-						<a href="register.html">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
-					</li>
-					<li>
-						<a href="login.html">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-					</li> -->
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!-- /Header -->
+			<!-- Show the "ultimos" products -->
+			
+			<div class="col-12 col-sm-6 col-lg-3">
+				<%for (let i=0; i<productos.length; i++){%>
+				<section class="product-box">
+					<a href="/prod/products">
+						<figure class="product-box_image">
+							<img src="<%=productos[i].imgUrl %>" alt="cafetera moulinex">
+						</figure>
+						<article class="product-box_data">
+							<h2><%=productos[i].nombre%></h2>
+							<p><%=productos[i].descripcion%></p>
+							<p><%=productos[i].precio%></p>
+							<p><%=productos[i].commments%></p>
+						</article>
+					</a>
+				</section>
+				<%}%>
+			</div>
+	<!-- /Novedades -->
+	<!-- Más comentados -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Más comentados</h2>
+			</div>
+
+			<div class="col-12 col-sm-6 col-lg-3">
+				<%for (let i=0; i<productos2.length; i++){%>
+				<section class="product-box">
+					<a href="/prod/products">
+						<figure class="product-box_image">
+							<img src="<%=productos2[i].imgUrl %>" alt="cafetera moulinex">
+						</figure>
+						<article class="product-box_data">
+							<h2><%=productos2[i].nombre%></h2>
+							<p><%=productos2[i].descripcion%></p>
+							<p><%=productos2[i].precio%></p>
+							<p><%=productos2[i].commments%></p>
+						</article>
+					</a>
+				</section>
+				<%}%>
+			</div>
+
 
 </body>	
 </html>

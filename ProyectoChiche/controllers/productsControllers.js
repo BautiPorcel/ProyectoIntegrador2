@@ -9,7 +9,8 @@ const controller = {
 
     serchResults: function (req,res){
         res.render('search-results',{
-            usuarioLogueado: false
+            usuarioLogueado: false,
+            productos: data.productos
         })
     },
 
