@@ -15,7 +15,7 @@ const data = {
     productos: [{
         nombre:'Remera Atletico Mineiro',
         imgUrl: 'images/Remeras/Remera_Atletico_Mineiro.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
+        descripcion: 'Camiseta titular de Atletico Mineiro temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias 	',
         precio: '25 usd',
         comments: [{
             user: 'Pepe',
@@ -29,7 +29,7 @@ const data = {
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
-            user: 'Pepe',
+            user: 'Marcos',
             comentario: "Muy buen producto. Recomendado"
         }]
 
@@ -40,7 +40,7 @@ const data = {
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
-            user: 'Pepe',
+            user: 'Tomas',
             comentario: "Muy buen producto. Recomendado"
         }]
 
@@ -51,7 +51,7 @@ const data = {
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
-            user: 'Pepe',
+            user: 'Bautista',
             comentario: "Muy buen producto. Recomendado"
         }]
 

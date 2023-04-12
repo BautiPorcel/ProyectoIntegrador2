@@ -5,7 +5,8 @@ const controller = {
         res.render('indexx',{
           productos: data.productos,
           productos2 : data.productos2,
-          usuarioLogueado: false
+          usuarioLogueado: false,
+          user: data.usuarios
         })
       },
 
@@ -13,7 +14,8 @@ const controller = {
       res.render('headerLogueado',{
           productos: data.productos,
           productos2 : data.productos2,
-          usuarioLogueado: true
+          usuarioLogueado: true,
+          user: data.usuarios
       })
     },
 

@@ -3,13 +3,15 @@ const data = require('../data/data')
 const controller = {
     login:function(req,res){
         res.render('login',{
-            usuarioLogueado: false
+            usuarioLogueado: false,
+            user: data.usuarios
         })
         },
 
     registrer: function(req,res){
         res.render('register',{
-            usuarioLogueado: false
+            usuarioLogueado: false,
+            user: data.usuarios
         })
         },
 
@@ -23,7 +25,8 @@ const controller = {
 
     profileEdit:function(req,res){
         res.render("profile-edit",{
-            usuarioLogueado: true
+            usuarioLogueado: true,
+            user: data.usuarios
         })
         },
     usuarioInfo: function(req,res){
