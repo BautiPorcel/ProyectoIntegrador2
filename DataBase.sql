@@ -34,17 +34,19 @@ CREATE TABLE productos(
 deleted_at TIMESTAMP NULL,
 CONSTRAINT fk_productos_clientes FOREIGN KEY(id_cliente) REFERENCES clientes(id)
 );
+
 INSERT INTO productos(id_cliente, nombre, descripcion)
-VALUES (1, 'Remera Barcelona', 'Camiseta oficial de partido'),
-(1, 'Remera Atletico Mineiro', 'Camiseta titular de Atletico Mineiro temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias'),
-(1, 'Remera Racing', 'Camiseta oficial de partido'),
-(2, 'Remera Bayer Munich', 'Camiseta oficial de partido'),
-(3, 'Remera Boca', 'Camiseta oficial de partido'),
-(5, 'Remera Independiente', 'Camiseta oficial de partido'),
-(4, 'Remera Alaves', 'Camiseta oficial de partido'),
-(2, 'Remera Juventus', 'Camiseta oficial de partido'),
-(5, 'Remera Manchester City', 'Camiseta oficial de partido'),
-(3, 'Remera Marsella', 'Camiseta oficial de partido')
+ VALUES (1, 'Remera Barcelona', 'Camiseta oficial de partido'),
+    (1, 'Remera Atletico Mineiro', 'Camiseta titular de Atletico Mineiro temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias'),
+    (1, 'Remera Racing', 'Camiseta de partido'),
+    (2, 'Remera Bayer Munich', 'Camiseta original de partido'),
+    (3, 'Remera Boca', 'Camiseta de partidos'),
+    (5, 'Remera Independiente', 'Camiseta titular oficial de partido'),
+    (4, 'Remera Alaves', 'Camiseta nueva oficial de partido'),
+    (2, 'Remera Juventus', 'Camiseta oficial de partidos 21/22'),
+    (5, 'Remera Manchester City', 'Camiseta titular de partido'),
+    (3, 'Remera Marsella', 'Camiseta oficial de partido Ligue1')
+;
 ;
 CREATE TABLE comentarios(
 id INT UNSIGNED PRIMARY KEY NOT NULL auto_increment,
