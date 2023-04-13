@@ -1,19 +1,20 @@
 
+
 const data = {
     usuarios: {
-        email:'tchaiman@udesa.edu.ar',
-        contr:'maradona10',
-        usuario:'tchaiman',
-        cumpleaños:'2004-02-22',
-        dni:45582137,
-        foto:''
+        email:"LeoMessi10@gmail.com",
+        contr:0,
+        usuario:"LeoMessi10",
+        cumpleaños:0,
+        dni:45748815,
+        foto:'images/Remeras/Messi.jpg'
 },
 
     productos: [{
-        nombre:'Remera',
-        imgUrl: 'images/products/img-cafetera-moulinex.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '10 usd',
+        nombre:'Remera Atletico Mineiro',
+        imgUrl: 'images/Remeras/Remera_Atletico_Mineiro.jpg',
+        descripcion: 'Camiseta titular de Atletico Mineiro temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias 	',
+        precio: '25 usd',
         comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
@@ -21,34 +22,34 @@ const data = {
 
     },
     {
-        nombre:'Remera',
-        imgUrl: 'images/products/img-macbook-pro-2019.jpg',
+        nombre:'Remera Barcelona',
+        imgUrl: 'images/Remeras/Remera_Barcelona.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
-            user: 'Pepe',
+            user: 'Marcos',
             comentario: "Muy buen producto. Recomendado"
         }]
 
     },
     {
-        nombre:'Remera',
-        imgUrl: 'images/products/img-samsung-galaxy-s10.jpg',
+        nombre:'Remera Bayer Munich',
+        imgUrl: 'images/Remeras/Remera_Bayer_Munich.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
-            user: 'Pepe',
+            user: 'Tomas',
             comentario: "Muy buen producto. Recomendado"
         }]
 
     },
     {
-        nombre:'Remera',
-        imgUrl: 'images/products/img-tv-samsung-smart.jpg',
+        nombre:'Remera Boca',
+        imgUrl: 'images/Remeras/Remera_Boca.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
-            user: 'Pepe',
+            user: 'Bautista',
             comentario: "Muy buen producto. Recomendado"
         }]
 
@@ -57,8 +58,8 @@ const data = {
     productos2: [
 
     {
-        nombre:'Remera',
-        imgUrl: 'images/products/img-cafetera-moulinex.jpg',
+        nombre:'Remera Independiente',
+        imgUrl: 'images/Remeras/Remera_Independiente.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
@@ -68,8 +69,8 @@ const data = {
 
     },
     {
-        nombre:'Remera',
-        imgUrl: 'images/products/img-cafetera-moulinex.jpg',
+        nombre:'Remera Alaves',
+        imgUrl: 'images/Remeras/Remerea_Alaves.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
@@ -79,8 +80,8 @@ const data = {
 
     },
     {
-        nombre:'Whey protein',
-        imgUrl: 'images/products/img-cafetera-moulinex.jpg',
+        nombre:'Remera Juventus',
+        imgUrl: 'images/Remeras/Remera_Juventus.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '8 usd',
         comments: [{
@@ -90,8 +91,8 @@ const data = {
 
     },
     {
-        nombre:'Jeans',
-        imgUrl: 'images/products/img-cafetera-moulinex.jpg',
+        nombre:'Remera Manchester City',
+        imgUrl: 'images/Remeras/Remera_Manchester_City.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '25 usd',
         comments: [{
@@ -101,8 +102,8 @@ const data = {
 
     },
     {
-        nombre:'Cania de pescar',
-        imgUrl: 'images/products/img-cafetera-moulinex.jpg',
+        nombre:'Remera Marsella',
+        imgUrl: 'images/Remeras/Remera_Marsella.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '100 usd',
         comments: [{
@@ -112,8 +113,8 @@ const data = {
 
     },
     {
-        nombre:'Zapatillas',
-        imgUrl: 'images/products/img-cafetera-moulinex.jpg',
+        nombre:'Remera Racing',
+        imgUrl: 'images/Remeras/Remera_Racing.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '50 usd',
         comments: [{

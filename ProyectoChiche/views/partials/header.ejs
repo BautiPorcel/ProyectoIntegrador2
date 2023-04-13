@@ -4,7 +4,7 @@
 			<div class="row align-items-center">
 				<div class="col-5 col-md-2">
 					<a href="/" class="main-header_home-link">
-						<img src="/images/logo-mercado-liebre.svg">
+						<img src="/images/Cazacasacas.jpg">
 					</a>
 				</div>
 	
@@ -26,7 +26,37 @@
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
-	
+	<% if(usuarioLogueado === true){ %>
+
+	<nav class="main-navbar">
+		<ul class="left-navbar">
+			<li><a href="/">Todos los productos</a></li>
+			<li><a href="/prod/product-add">Cargar productos</a></li>
+		</ul>
+
+		<ul class="right-navbar">
+			<li><a href="/users/profile">
+				<%=user.usuario%><i class="fas fa-user"></i>
+				</a>
+			</li>
+			<li>
+				<form action="/users/login" method="get">
+					<button class="logout" type="submit">
+						Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+					</button>
+				</form>
+			</li>
+			<!-- Solo deslogueado <li>
+				<a href="register.html">Creá tu cuenta <i class="far fa-address-card"></i>
+				</a>
+			</li>
+			<li>
+				<a href="login.html">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+			</li> -->
+		</ul>
+	</nav>
+
+	<% } else{ %>
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="/">Todos los productos</a></li>
@@ -54,6 +84,7 @@
 					</li>
 				</ul>
 			</nav>
+			<% } %>
 		</div>
 	</header>
 	<!-- /Header -->

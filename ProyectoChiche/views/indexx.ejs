@@ -16,8 +16,8 @@
 			<!-- Show the "ultimos" products -->
 			
 			<div class="col-12 col-sm-6 col-lg-3">
-				<%for (let i=0; i<productos.length; i++){%>
 				<section class="product-box">
+					<%for (let i=0; i<productos.length; i++){%>
 					<a href="/prod/products">
 						<figure class="product-box_image">
 							<img src="<%=productos[i].imgUrl %>" alt="cafetera moulinex">
@@ -32,7 +32,6 @@
 				</section>
 				<%}%>
 			</div>
-			
 	<!-- /Novedades -->
 	<!-- Más comentados -->
 	<div class="container products-wrapper">
@@ -58,9 +57,6 @@
 				</section>
 				<%}%>
 			</div>
-
-
-
 
 <%- include('./partials/footer') %>
 	
