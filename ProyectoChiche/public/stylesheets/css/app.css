@@ -190,7 +190,8 @@ hr {
   overflow: hidden;
   transition: 300ms;
   margin: 20px 0;
-}
+  
+  }
 
 .product-box a {
   display: block;
@@ -247,7 +248,7 @@ hr {
   justify-content: center;
   align-items: center;
   transition: 300ms;
-}
+  }
 
 .noproducts {
   text-align: center
