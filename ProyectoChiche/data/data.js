@@ -7,12 +7,12 @@ const data = {
         usuario:"LeoMessi10",
         cumpleaños:0,
         dni:45748815,
-        foto:'images/Remeras/Messi.jpg'
+        foto:'/images/Remeras/Messi.jpg'
 },
 
     productos: [{
         nombre:'Remera Atletico Mineiro',
-        imgUrl: 'images/Remeras/Remera_Atletico_Mineiro.jpg',
+        imgUrl: '/images/Remeras/Remera_Atletico_Mineiro.jpg',
         descripcion: 'Camiseta titular de Atletico Mineiro temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias 	',
         precio: '25 usd',
         comments: [{
@@ -22,8 +22,8 @@ const data = {
 
     },
     {
-        nombre:'Remera Barcelona',
-        imgUrl: 'images/Remeras/Remera_Barcelona.jpg',
+        nombre:'Remera_Barcelona',
+        imgUrl: '/images/Remeras/Remera_Barcelona.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
@@ -34,7 +34,7 @@ const data = {
     },
     {
         nombre:'Remera Bayer Munich',
-        imgUrl: 'images/Remeras/Remera_Bayer_Munich.jpg',
+        imgUrl: '/images/Remeras/Remera_Bayer_Munich.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
@@ -45,7 +45,7 @@ const data = {
     },
     {
         nombre:'Remera Boca',
-        imgUrl: 'images/Remeras/Remera_Boca.jpg',
+        imgUrl: '/images/Remeras/Remera_Boca.jpg',
         descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
         precio: '10 usd',
         comments: [{
