@@ -10,8 +10,6 @@ const data = {
         foto:'/images/Remeras/Messi.jpg'
 },
 
-    comentario:0,
-
     productos: [{
         nombre:'Remera Atletico Mineiro',
         imgUrl: '/images/Remeras/Remera_Atletico_Mineiro.jpg',
@@ -57,8 +55,7 @@ const data = {
 
     }
 ],
-
-productos2: [
+    productos2: [
 
     {
         nombre:'Remera Independiente',
@@ -72,7 +69,7 @@ productos2: [
 
     },
     {
-        nombre:'Remerea_Alaves',
+        nombre:'Remera Alaves',
         imgUrl: 'images/Remeras/Remerea_Alaves.jpg',
         descripcion: 'Camiseta titular del Deportivo Alaves temporada 2022/23!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
         precio: '80 usd',
@@ -94,7 +91,7 @@ productos2: [
 
     },
     {
-        nombre:'Remera_Manchester_City',
+        nombre:'Remera Manchester City',
         imgUrl: 'images/Remeras/Remera_Manchester_City.jpg',
         descripcion: 'Camiseta titular de Manchester City temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
         precio: '100 usd',
@@ -105,7 +102,7 @@ productos2: [
 
     },
     {
-        nombre:'Remera_Marsella',
+        nombre:'Remera Marsella',
         imgUrl: 'images/Remeras/Remera_Marsella.jpg',
         descripcion: 'Camiseta titular de Marsella temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
         precio: '100 usd',
@@ -126,5 +123,76 @@ productos2: [
         }]
 
 },
-]}
+],
+    comments: [{
+        comments1: [{
+            user: 'Pepe',
+            comentario: "Muy buen producto. Recomendado"
+        }, {user: 'Pepe',
+        comentario: "Muy buen producto. Recomendado"}]
+    }
+        ,{
+            comments2: [{
+                user: 'Pepe',
+                comentario: "Muy buen producto. Recomendado"
+            }, {user: 'Pepe',
+            comentario: "Muy buen producto. Recomendado"}]
+        }
+            ,{
+                comments3: [{
+                    user: 'Pepe',
+                    comentario: "Muy buen producto. Recomendado"
+                }, {user: 'Pepe',
+                comentario: "Muy buen producto. Recomendado"}]
+            }
+                ,{
+                    comments4: [{
+                        user: 'Pepe',
+                        comentario: "Muy buen producto. Recomendado"
+                    }, {user: 'Pepe',
+                    comentario: "Muy buen producto. Recomendado"}]
+                }
+                    ,{
+                        comments5: [{
+                            user: 'Pepe',
+                            comentario: "Muy buen producto. Recomendado"
+                        }, {user: 'Pepe',
+                        comentario: "Muy buen producto. Recomendado"}]
+                    },{
+                        comments6: [{
+                            user: 'Pepe',
+                            comentario: "Muy buen producto. Recomendado"
+                        }, {user: 'Pepe',
+                        comentario: "Muy buen producto. Recomendado"}]
+                    }
+                        ,{
+                            comments7: [{
+                                user: 'Pepe',
+                                comentario: "Muy buen producto. Recomendado"
+                            }, {user: 'Pepe',
+                            comentario: "Muy buen producto. Recomendado"}]
+                        }
+                            ,{
+                                comments8: [{
+                                    user: 'Pepe',
+                                    comentario: "Muy buen producto. Recomendado"
+                                }, {user: 'Pepe',
+                                comentario: "Muy buen producto. Recomendado"}]
+                            }
+                                ,{
+                                    comments9: [{
+                                        user: 'Pepe',
+                                        comentario: "Muy buen producto. Recomendado"
+                                    }, {user: 'Pepe',
+                                    comentario: "Muy buen producto. Recomendado"}]
+                                }
+                                    ,{
+                                        comments10: [{
+                                            user: 'Pepe',
+                                            comentario: "Muy buen producto. Recomendado"
+                                        }, {user: 'Pepe',
+                                        comentario: "Muy buen producto. Recomendado"}]
+                                    }
+  ],
+}
 module.exports = data

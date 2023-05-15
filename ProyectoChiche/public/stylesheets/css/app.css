@@ -52,6 +52,7 @@ figure {
 
 img {
   width: 100%;
+  height: 100%;
 }
 
 input,
@@ -159,7 +160,7 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/cazacasacas.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -185,7 +186,8 @@ hr {
   overflow: hidden;
   transition: 300ms;
   margin: 20px 0;
-}
+  
+  }
 
 .product-box a {
   display: block;
@@ -242,7 +244,7 @@ hr {
   justify-content: center;
   align-items: center;
   transition: 300ms;
-}
+  }
 
 .noproducts {
   text-align: center
@@ -410,6 +412,7 @@ hr {
   border-bottom: 1px solid #dcdcdc;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .comments img{
   width: 40px;
