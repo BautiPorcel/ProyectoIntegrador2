@@ -2,6 +2,7 @@ const data = require('../data/data')
 
 const controller = {
     products: function (req,res){
+        const id = req.params.id
         res.render('product',{
         usuarioLogueado: false,
         user: data.usuarios,
