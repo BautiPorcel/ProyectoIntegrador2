@@ -1,14 +1,25 @@
 const data = require('../data/data')
+const db = require("../database/models/index")
+const op = db.Sequelize.Op
 
 const controller = {
     home:function(req,res){
+      db.Producto.findAll({
+        raw: true,
+        nest: true,
+        include:[{association: ""}]
+      })
+
+    .then(function(data){
         res.render('indexx',{
           productos: data.productos,
           productos2 : data.productos2,
           usuarioLogueado: false,
-          user: data.usuarios
+          user: data.usuarios}
         })
-      },
+      })
+      .catch(function(err){console.log(err)})
+      ,
 
     headerLogeado: function(req,res){
       res.render('headerLogueado',{
