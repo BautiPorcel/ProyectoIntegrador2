@@ -4,8 +4,8 @@ const controller = {
     products: function (req,res){
         res.render('product',{
         usuarioLogueado: false,
-        user: data.usuarios,
-        productos: data.productos
+        productos: data.productos,
+        user: data.usuarios
         })
     },
 

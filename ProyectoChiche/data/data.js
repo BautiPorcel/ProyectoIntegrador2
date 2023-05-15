@@ -16,7 +16,7 @@ const data = {
         nombre:'Remera Atletico Mineiro',
         imgUrl: '/images/Remeras/Remera_Atletico_Mineiro.jpg',
         descripcion: 'Camiseta titular de Atletico Mineiro temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias 	',
-        precio: '25 usd',
+        precio: '76 usd',
         comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
@@ -26,33 +26,33 @@ const data = {
     {
         nombre:'Remera_Barcelona',
         imgUrl: '/images/Remeras/Remera_Barcelona.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '10 usd',
+        descripcion: 'Camiseta titular del Barcelona temporada 2022/23!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
+        precio: '100 usd',
         comments: [{
             user: 'Marcos',
-            comentario: "Muy buen producto. Recomendado"
+            comentario: "Es increible la calidad de estas remeras!!"
         }]
 
     },
     {
         nombre:'Remera Bayer Munich',
         imgUrl: '/images/Remeras/Remera_Bayer_Munich.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '10 usd',
+        descripcion: 'Camiseta titular de Bayer Munich temporada 2022/23!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
+        precio: '100 usd',
         comments: [{
             user: 'Tomas',
-            comentario: "Muy buen producto. Recomendado"
+            comentario: "Nunca juge al futbol con una remera tan comoda"
         }]
 
     },
     {
         nombre:'Remera Boca',
         imgUrl: '/images/Remeras/Remera_Boca.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '10 usd',
+        descripcion: 'Camiseta titular de Boca juniors temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
+        precio: '50 usd',
         comments: [{
             user: 'Bautista',
-            comentario: "Muy buen producto. Recomendado"
+            comentario: "Enamorado de cazacasacas"
         }]
 
     }
@@ -63,8 +63,8 @@ productos2: [
     {
         nombre:'Remera Independiente',
         imgUrl: 'images/Remeras/Remera_Independiente.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '10 usd',
+        descripcion: 'Camiseta titular de independiente temporada 2022/23!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
+        precio: '1 usd',
         comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
@@ -74,8 +74,8 @@ productos2: [
     {
         nombre:'Remerea_Alaves',
         imgUrl: 'images/Remeras/Remerea_Alaves.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '10 usd',
+        descripcion: 'Camiseta titular del Deportivo Alaves temporada 2022/23!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
+        precio: '80 usd',
         comments: [{
             user: 'Pepe',
             comentario: "Muy buen producto. Recomendado"
@@ -85,8 +85,8 @@ productos2: [
     {
         nombre:'Remera Juventus',
         imgUrl: 'images/Remeras/Remera_Juventus.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '8 usd',
+        descripcion: 'Camiseta titular de Juventus temporada 2022/23!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
+        precio: '100 usd',
         comments: [{
             user: 'aguscapo10',
             comentario: "Llego vencida, un asco. Quiero reembolso"
@@ -96,8 +96,8 @@ productos2: [
     {
         nombre:'Remera_Manchester_City',
         imgUrl: 'images/Remeras/Remera_Manchester_City.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '25 usd',
+        descripcion: 'Camiseta titular de Manchester City temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
+        precio: '100 usd',
         comments: [{
             user: 'Tomas',
             comentario: "Recomendado"
@@ -107,7 +107,7 @@ productos2: [
     {
         nombre:'Remera_Marsella',
         imgUrl: 'images/Remeras/Remera_Marsella.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
+        descripcion: 'Camiseta titular de Marsella temporada 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
         precio: '100 usd',
         comments: [{
             user: 'Agustin',
@@ -118,8 +118,8 @@ productos2: [
     {
         nombre:'Remera Racing',
         imgUrl: 'images/Remeras/Remera_Racing.jpg',
-        descripcion: '>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque delectus ex',
-        precio: '50 usd',
+        descripcion: 'Camiseta titular del mejor equipo del mundo 2021/22!Talle S al XL-Stock inmediato para despacho o retiro, en caso de ser estampada demora dos o tres dias ',
+        precio: '5000 usd',
         comments: [{
             user: 'Jose',
             comentario: "Muy caro. No recomendado"

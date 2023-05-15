@@ -4,13 +4,13 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #766b31;
+  --yellow: #EAC926;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family: '', 
 }
 
 
@@ -29,14 +29,7 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: white;
-}
-
-h2{
-
-  font-family: open sans-serif;
-  color: black;
-
+  background-color: #D3D3D3;
 }
 
 ul,
@@ -75,12 +68,17 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: #050a30;
+  background-color: beige;
 }
 
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
+}
+
+.banner_index{
+  height: 350px;
+  width: 100%;
 }
 
 .main-header_credit-link {
@@ -109,12 +107,11 @@ hr {
   position: absolute;
   right: 2px;
   height: 60%;
-  background-color: white;
+  background-color: #e9c46a;
   border: none;
   border-left: solid 1px var(--light-gray);
   color: var(--gray);
   cursor: pointer;
-
 }
 
 
@@ -145,8 +142,6 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
-  color: white;
-  font-family: open sans-serif;
 }
 
 .logout:hover{
@@ -181,7 +176,7 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: black;
+  color: var(--gray);
 }
 
 .product-box {
@@ -284,13 +279,13 @@ hr {
 }
 
 .footer-data h2 {
-  color: black;
+  color: var(--gray);
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: black;
+  color: var(--gray);
   font-size: 1.5em;
   font-weight: 300;
 }
@@ -492,8 +487,6 @@ textarea.form-input {
   .main-header_credit-link {
     margin-top: 0;
     text-align: right;
-    color: white;
-    font-family: open sans-serif;
   }
 
   .banner {
@@ -516,8 +509,6 @@ textarea.form-input {
   .left-navbar a,
   .right-navbar a {
     border-bottom: none;
-    color: white;
-    font-family: open sans-serif;
   }
 
   .left-navbar a:hover,
