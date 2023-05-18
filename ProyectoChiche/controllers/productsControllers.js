@@ -5,8 +5,8 @@ const controller = {
         const id = req.params.id
         res.render('product',{
         usuarioLogueado: false,
-        user: data.usuarios,
-        productos: data.productos
+        productos: data.productos,
+        user: data.usuarios
         })
     },
 
