@@ -1,4 +1,7 @@
-const data = require('../data/data')
+//const data = require('../data/data')
+// let db = require("../database/models/index")
+// let op = db.Sequelize.Op
+// let bcryct = requiere("bcryptjs")
 
 const controller = {
     products: function (req,res){
