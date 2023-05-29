@@ -1,14 +1,14 @@
-module.exports = function(sequelize,DataTypes){
+module.exports = function(sequelize,dataTypes){
     let alias = "Comentarios"
 
 let cols = {
     id:{
-        primareyKey: true,
-        type: DataTypes.INTEGER
+        primaryKey: true,
+        type: dataTypes.INTEGER
     },
     comentario:{
         primareyKey: true,
-        type: DataTypes.STRING
+        type: dataTypes.STRING
     }
 }
 
