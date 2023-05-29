@@ -1,5 +1,5 @@
 module.exports = function(sequelize,DataTypes){
-    let alias = "Usuarios"
+    let alias = "Clientes"
 
 let cols = {
     id:{
@@ -25,15 +25,15 @@ let config = {
     timestapms: false
 }
 
-const Usuarios = sequelize.define(alias, cols, config)
+const Clientes = sequelize.define(alias, cols, config)
 
-Usuarios.associate = function(models){
-        Usuarios.hasMany(models.Producto,{
+Clientes.associate = function(models){
+        Clientes.hasMany(models.Productos,{
         as:"productos",
-        foreingKey: "id_cliente"
+        foreignKey: "id_cliente"
         })
 
         
 }
-    return Usuarios
+    return Clientes
 }

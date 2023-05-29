@@ -4,12 +4,12 @@ module.exports = function(sequelize,dataTypes){
     let columnas = {
         id: {
             type: dataTypes.INTEGER,
-            primaaryKey: true
+            primaryKey: true
         },
-        title:{
+        nombre:{
             type:dataTypes.STRING
         },
-        valoracion:{
+        descripcion:{
             type: dataTypes.DECIMAL
         }
     }
@@ -22,12 +22,11 @@ module.exports = function(sequelize,dataTypes){
 const Productos = sequelize.define(alias, columnas,config)
 
 Productos.associate = function(models){
-    Productos.belongsTo(models.Usuarios, {
-        as:"usuarios",
-        foreingKey: "id_cliente"
+    Productos.belongsTo(models.Clientes, {
+        as:"clientes",
+        foreignKey: "id_cliente"
     })
 
-    Productos.belongsToMany(models.coemntarios)
 }
     return Productos
 }
