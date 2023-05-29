@@ -6,11 +6,11 @@ let cols = {
         primaryKey: true,
         type: DataTypes.INTEGER
     },
-    name:{
+    nombre:{
         allowNull: false,
         type: DataTypes.STRING
     },
-    password:{
+    contrasena:{
         allowNull: false,
         type:DataTypes.STRING
     },
@@ -22,7 +22,7 @@ let cols = {
 
 let config = {
     tableName:"clientes",
-    timestapms: false
+    timestamps: false
 }
 
 const Clientes = sequelize.define(alias, cols, config)

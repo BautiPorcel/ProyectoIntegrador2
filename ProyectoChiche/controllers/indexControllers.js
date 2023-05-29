@@ -7,13 +7,14 @@ const controller = {
       db.Productos.findAll({
         raw: true,
         nest: true,
-        include:[{association: 'cliente'}
+        include:[{association: 'clientes'}
          ]
       })
     .then(function(data){
+      console.log(data)
       res.render('indexx',{
-          productos: data.productos,
-          productos2 : data.productos2,
+          productos: data,
+          productos2 : data,
           usuarioLogueado: false,
           user: data.usuarios})
         })
