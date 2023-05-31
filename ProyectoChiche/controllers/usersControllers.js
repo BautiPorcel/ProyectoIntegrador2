@@ -1,4 +1,7 @@
 const data = require('../data/data')
+const db = require('../database/models/index')
+const op = db.Sequelize.Op
+
 
 const controller = {
     login:function(req,res){
@@ -38,6 +41,25 @@ const controller = {
         const cumple = req.query.birthday
         const foto = req.query.profile
         res.send(`Hola ${email}${usuario}${password}${dni}${cumple}${foto}`)
+    },
+
+    create: function(req,res){
+        let nombre = req.body.nombre
+        let email = req.body.email
+        let contrasena = req.body.contrasena
+        let foto_perfil = req.body.foto_perfil
+        let DNI = req.body.DNI
+        let fecha_de_nacimiento = req.body.fecha_de_nacimiento
+        db.usuario.create({
+            nombre,
+            email,
+            contrasena,
+            foto_perfil,
+            DNI,
+            fecha_de_nacimiento
+
+        })
+        
     }
     
 

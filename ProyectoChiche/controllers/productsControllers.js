@@ -1,7 +1,7 @@
 const data = require('../data/data')
 let db = require("../database/models/index")
 let op = db.Sequelize.Op
-let bcrypt = requiere("bcryptjs")
+//let bcrypt = require('bcryptjs')
 
 const controller = {
     products: function (req,res){
@@ -57,7 +57,10 @@ const controller = {
         })
     },
     create:function(req,res){
-        let tituloEncriptado = bcryct
+
+        let tituloEncriptado = bcrypt.hashSync(req.body.nombre,10)
+
+        let comparacion = bcrypt.compareSync('',tituloEncriptado)
     }
 }
 
