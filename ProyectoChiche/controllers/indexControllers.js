@@ -9,7 +9,7 @@ const controller = {
         nest: true,
         include:[
           {association: 'clientes'},
-          //{association: "comentarios"}
+          {association: 'comentarios'}
          ]
       })
     .then(function(data){

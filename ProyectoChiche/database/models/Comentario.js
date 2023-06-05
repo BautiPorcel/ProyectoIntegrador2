@@ -24,7 +24,12 @@ Comentarios.associate = function(models){
         as:"clientes",
         foreignKey: "id_cliente"
     })
-
+    
+        Comentarios.belongsTo(models.Productos,{
+            as:"productos",
+            foreignKey: "id_producto"
+        })
 }
+
 return Comentarios
 }
