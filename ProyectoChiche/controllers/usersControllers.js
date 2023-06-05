@@ -1,7 +1,6 @@
 const data = require('../data/data')
 const db = require('../database/models/index')
 const op = db.Sequelize.Op
-const bcrypt = require('bcryptjs')
 
 
 const controller = {
@@ -19,7 +18,7 @@ const controller = {
         })
         },
 
-    profile:function(req,res){
+    profile: function(req,res){
         res.render("profile",{
             productos: data.productos,
             usuarioLogueado: true,
