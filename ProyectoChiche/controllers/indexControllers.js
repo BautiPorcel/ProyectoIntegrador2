@@ -7,7 +7,9 @@ const controller = {
       db.Productos.findAll({
         raw: true,
         nest: true,
-        include:[{association: 'clientes'}
+        include:[
+          {association: 'clientes'},
+          //{association: "comentarios"}
          ]
       })
     .then(function(data){
@@ -22,8 +24,8 @@ const controller = {
     },
     headerLogeado: function(req,res){
       res.render('headerLogueado',{
-          productos: data.productos,
-          productos2 : data.productos2,
+          productos: data,
+          productos2 : data,
           usuarioLogueado: true,
           user: data.usuarios
       })
@@ -33,7 +35,12 @@ const controller = {
       const email = req.query.email
       const contra = req.query.password
       res.render(`Hola ${email}, tu contra es ${contra}`
-      )}
+      )},
+
+    logout: function(req,res){
+      req.session.user = undefined
+      res.redirect("/")
+    }
 
 }
 
