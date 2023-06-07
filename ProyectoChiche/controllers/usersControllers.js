@@ -18,7 +18,7 @@ const controller = {
         })
         },
 
-    profile:function(req,res){
+    profile: function(req,res){
         res.render("profile",{
             productos: data.productos,
             usuarioLogueado: true,
@@ -50,14 +50,23 @@ const controller = {
         let foto_perfil = req.body.foto_perfil
         let DNI = req.body.DNI
         let fecha_de_nacimiento = req.body.fecha_de_nacimiento
-        db.usuario.create({
+
+        let passEncriptada = bcrypt.hashSync(contrasena, 12)
+        db.Clientes.create({
             nombre,
             email,
-            contrasena,
+            contrasena: passEncriptada,
             foto_perfil,
             DNI,
             fecha_de_nacimiento
 
+        })
+        .then( function(resp){
+            console.log(resp.id)
+            res.redirect('/users/profile')
+        })
+        .catch(function(error){
+            console.log(error)
         })
         
     }

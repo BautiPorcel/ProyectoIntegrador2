@@ -32,7 +32,10 @@ Clientes.associate = function(models){
         as:"productos",
         foreignKey: "id_cliente"
         })
-
+        Clientes.hasMany(models.Comentarios,{
+            as:"comentarios",
+            foreignKey: "id_cliente"
+            })
         
 }
     return Clientes
