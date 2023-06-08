@@ -1,7 +1,7 @@
 const data = require('../data/data')
 const db = require('../database/models/index')
 const op = db.Sequelize.Op
-//const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 
 const controller = {
     login:function(req,res){
@@ -51,11 +51,11 @@ const controller = {
         let dni = req.body.dni
         let fecha_de_nacimiento = req.body.fecha_de_nacimiento
 
-        // let passEncriptada = bcrypt.hashSync(passEncriptada, 12)
+        let passEncriptada = bcrypt.hashSync(contrasena, 12)
         db.Clientes.create({
             nombre,
             email,
-            contrasena,
+            contrasena: passEncriptada,
             dni,
             foto_perfil,
             fecha_de_nacimiento,
@@ -70,6 +70,42 @@ const controller = {
             console.log(error)
         })
         
+    },
+
+    checkUser: function(req,res){
+        let {email,contrasena,remeberMe} = req.body
+        db.Clientes.findOne({
+            where:{
+                email
+            },
+            raw:true
+        })
+        .then(function(cliente){
+            let comparacionContrasena = bcrypt.compareSync(contrasena, cliente.contrasena)
+            if(comparacionContrasena){
+                req.session.Clientes = {
+                    id: cliente.id,
+                    nombre: cliente.name,
+                    email: cliente.email
+                }
+
+                if(remeberMe === "on"){
+                    res.cookie(
+                        "acordarseCliente",
+                    {
+                        id: cliente.id,
+                        nombre: cliente.name,
+                        email: cliente.email
+                    }
+                )
+            }
+
+            res.redirect("/users/profile")
+            }
+        })
+        .catch(function(err){
+            console.log(err)
+        })
     }
     
 
