@@ -86,16 +86,16 @@ const controller = {
                 req.session.Clientes = {
                     id: cliente.id,
                     nombre: cliente.name,
-                    email: cliente.email
+                    email: cliente.email,
                 }
 
                 if(remeberMe === "on"){
                     res.cookie(
-                        "acordarseCliente",
+                        "redordarme",
                     {
                         id: cliente.id,
                         nombre: cliente.name,
-                        email: cliente.email
+                        email: cliente.email,
                     }
                 )
             }
@@ -106,7 +106,26 @@ const controller = {
         .catch(function(err){
             console.log(err)
         })
+    },
+    update: function(req,res){
+        let id = req.params.id
+        let {name,email} = req.body
+        db.Clientes.update({
+            nombre: nombre,
+            email:email
+        },{
+            where:{
+                id:id
+            }
+        })
+        .then(function(resp){
+            res.redirect("/users/profile"+ id)
+        })
+        .catch(function(err){
+            console.log(err)
+        })
     }
+
     
 
 }

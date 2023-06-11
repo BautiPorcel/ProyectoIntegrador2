@@ -20,9 +20,8 @@ let cols = {
     },
     dni:{
         allowNull: false,
-        type:DataTypes.STRING
+        type:DataTypes.INTEGER
     },
-   
     fecha_de_nacimiento:{
         allowNull: false,
         type:DataTypes.DATE

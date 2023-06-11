@@ -1,7 +1,7 @@
 const data = require('../data/data')
 let db = require("../database/models/index")
 let op = db.Sequelize.Op
-//let bcrypt = require('bcryptjs')
+let bcrypt = require('bcryptjs')
 
 const controller = {
     products: function (req,res){
@@ -21,7 +21,6 @@ const controller = {
 
     serchResults: function (req,res){
         let loQueEstoyBuscando = req.query.busqueda
-
         db.Productos.findAll({
             where:{
                 nombre: {
@@ -40,8 +39,9 @@ const controller = {
 
         res.render('search-results',{
             usuarioLogueado: false,
-            productos: data.productos,
-            user: data.usuarios
+            productos: data,
+            //user: data.usuarios,
+            busqueda: loQueEstoyBuscando
         })
     })
         .catch(function(err){
