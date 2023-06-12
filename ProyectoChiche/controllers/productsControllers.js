@@ -1,8 +1,12 @@
 const data = require('../data/data')
 let db = require("../database/models/index")
 let op = db.Sequelize.Op
+<<<<<<< HEAD
 let bcrypt = require('bcryptjs')
 const { Op } = require("sequelize")
+=======
+//let bcrypt = require('bcryptjs')
+>>>>>>> 018751a4f578dbddefd6d2211ca379aead727229
 
 const controller = {
     products: function (req,res){
