@@ -8,9 +8,10 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<div class="product-detail">
-				<form action="/prod/products" method="get">
-					<input type="text" name="Nombre de Producto" placeholder="Nombre de producto">
-					<input type="text" name="Descripcion" placeholder="Descripcion">		
+				<form action="/prod/product-add/create" method="POST">
+					<input type="text" name="nombre" placeholder="Nombre de producto">
+					<input type="text" name="descripcion" placeholder="Descripcion">
+					<input type="text" name="image" placeholder="Imagen a mostrar">		
 					<input type="submit">
 				</form>
 			</div>

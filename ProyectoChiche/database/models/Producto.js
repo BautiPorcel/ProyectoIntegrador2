@@ -7,10 +7,22 @@ module.exports = function(sequelize,dataTypes){
             primaryKey: true
         },
         nombre:{
-            type:dataTypes.STRING
+            type:dataTypes.STRING,
+            allowNull: false
         },
         descripcion:{
-            type: dataTypes.DECIMAL
+            type: dataTypes.STRING,
+            allowNull: false
+        },
+        created_at:{
+            type: dataTypes.STRING,
+        },
+        update_at:{
+            type: dataTypes.STRING
+        },
+        image:{
+            type: dataTypes.STRING,
+            allowNull: false
         }
     }
 
@@ -31,7 +43,7 @@ Productos.associate = function(models){
         as:"comentarios",
         foreignKey: "id_producto"
     })
-};
+}
 
     return Productos
 }
