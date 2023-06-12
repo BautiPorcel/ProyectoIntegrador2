@@ -5,6 +5,7 @@ const controller = require("../controllers/usersControllers")
 router.get("/login", controller.login)
 
 router.get("/register", controller.registrer)
+router.post("/profile", controller.create)
 
 router.get("/profile",controller.profile )
 

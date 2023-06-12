@@ -1,7 +1,7 @@
 const data = require('../data/data')
 const db = require('../database/models/index')
 const op = db.Sequelize.Op
-
+const bcrypt = require('bcryptjs')
 
 const controller = {
     login:function(req,res){
@@ -48,7 +48,7 @@ const controller = {
         let email = req.body.email
         let contrasena = req.body.contrasena
         let foto_perfil = req.body.foto_perfil
-        let DNI = req.body.DNI
+        let dni = req.body.dni
         let fecha_de_nacimiento = req.body.fecha_de_nacimiento
 
         let passEncriptada = bcrypt.hashSync(contrasena, 12)
@@ -56,20 +56,76 @@ const controller = {
             nombre,
             email,
             contrasena: passEncriptada,
+            dni,
             foto_perfil,
-            DNI,
-            fecha_de_nacimiento
-
+            fecha_de_nacimiento,
+           
         })
+
         .then( function(resp){
-            console.log(resp.id)
+            console.log(resp)
             res.redirect('/users/profile')
         })
         .catch(function(error){
             console.log(error)
         })
         
+    },
+
+    checkUser: function(req,res){
+        let {email,contrasena,remeberMe} = req.body
+        db.Clientes.findOne({
+            where:{
+                email
+            },
+            raw:true
+        })
+        .then(function(cliente){
+            let comparacionContrasena = bcrypt.compareSync(contrasena, cliente.contrasena)
+            if(comparacionContrasena){
+                req.session.Clientes = {
+                    id: cliente.id,
+                    nombre: cliente.name,
+                    email: cliente.email,
+                }
+
+                if(remeberMe === "on"){
+                    res.cookie(
+                        "redordarme",
+                    {
+                        id: cliente.id,
+                        nombre: cliente.name,
+                        email: cliente.email,
+                    }
+                )
+            }
+
+            res.redirect("/users/profile")
+            }
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+    },
+    update: function(req,res){
+        let id = req.params.id
+        let {name,email} = req.body
+        db.Clientes.update({
+            nombre: nombre,
+            email:email
+        },{
+            where:{
+                id:id
+            }
+        })
+        .then(function(resp){
+            res.redirect("/users/profile"+ id)
+        })
+        .catch(function(err){
+            console.log(err)
+        })
     }
+
     
 
 }

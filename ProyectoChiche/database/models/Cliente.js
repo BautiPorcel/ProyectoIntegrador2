@@ -17,7 +17,16 @@ let cols = {
     email:{
         allowNull: false,
         type:DataTypes.STRING
+    },
+    dni:{
+        allowNull: false,
+        type:DataTypes.INTEGER
+    },
+    fecha_de_nacimiento:{
+        allowNull: false,
+        type:DataTypes.DATE
     }
+
 }
 
 let config = {

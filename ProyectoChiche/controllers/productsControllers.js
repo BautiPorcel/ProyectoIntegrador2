@@ -24,7 +24,7 @@ const controller = {
 
         db.Productos.findAll({
             where:{
-                nombre: {
+                nombre : {
                     [op.like]: `%${loQueEstoyBuscando}%`
                 }
             },
@@ -32,6 +32,8 @@ const controller = {
         })
         .then(function(data){
             let encontroResultados
+
+            console.log(data)
             if (data.length > 0){
                 encontroResultados = true
             } else {
@@ -40,8 +42,9 @@ const controller = {
 
         res.render('search-results',{
             usuarioLogueado: false,
-            productos: data.productos,
-            user: data.usuarios
+            resultados: data,
+            encontroResultados: encontroResultados,
+            busqueda: loQueEstoyBuscando
         })
     })
         .catch(function(err){
@@ -58,9 +61,10 @@ const controller = {
     },
     create:function(req,res){
 
-        let tituloEncriptado = bcrypt.hashSync(req.body.nombre,10)
+        let tituloEncriptado = bcrypt.hashSync(req.body.nombre,25)
 
         let comparacion = bcrypt.compareSync('NoseporquePepe3000',tituloEncriptado)
+        console.log(comparacion)
 
         db.Productos.create({
             nombre: req.body.nombre,
