@@ -2,6 +2,7 @@ const data = require('../data/data')
 let db = require("../database/models/index")
 let op = db.Sequelize.Op
 let bcrypt = require('bcryptjs')
+const { Op } = require("sequelize")
 
 const controller = {
     products: function (req,res){
@@ -20,14 +21,16 @@ const controller = {
     },
 
     serchResults: function (req,res){
-        let loQueEstoyBuscando = req.query.busqueda
+        let loQueEstoyBuscando = req.query.search
 
         db.Productos.findAll({
-            where:{
-                nombre : {
-                    [op.like]: `%${loQueEstoyBuscando}%`
-                }
-            },
+            where: {
+                [Op.or]: [
+                  { nombre: { [Op.like]: `%${loQueEstoyBuscando}%` } },
+                  { descripcion: { [Op.like]: `%${loQueEstoyBuscando}%` } }
+                ]
+              },
+              order: [['created_at', 'DESC']],
             raw:true
         })
         .then(function(data){
@@ -69,7 +72,7 @@ const controller = {
         db.Productos.create({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
-            imagen: req.body.imagen
+            imagen: req.body.image
         })
         .then(function(data){
             res.redirect('/')

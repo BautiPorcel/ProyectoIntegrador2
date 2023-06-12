@@ -19,10 +19,15 @@ const controller = {
         },
 
     profile: function(req,res){
+        let id = req.session.Clientes.id
+        db.Clientes.findByPk(id)
+        .then(function(usuario){
         res.render("profile",{
-            productos: data.productos,
             usuarioLogueado: true,
-            user: data.usuarios
+            usuario: usuario})
+        })
+        .catch(function(err){
+            console.log(err)
         })
         },
 
@@ -62,7 +67,7 @@ const controller = {
            
         })
 
-        .then( function(resp){
+        .then(function(resp){
             console.log(resp)
             res.redirect('/users/profile')
         })
@@ -82,12 +87,15 @@ const controller = {
         })
         .then(function(cliente){
             let comparacionContrasena = bcrypt.compareSync(contrasena, cliente.contrasena)
+            console.log('Pasa por el then')
             if(comparacionContrasena){
                 req.session.Clientes = {
                     id: cliente.id,
-                    nombre: cliente.name,
+                    nombre: cliente.nombre,
                     email: cliente.email,
+
                 }
+                res.locals.usuario = req.session.Clientes
 
                 if(remeberMe === "on"){
                     res.cookie(
@@ -109,7 +117,7 @@ const controller = {
     },
     update: function(req,res){
         let id = req.params.id
-        let {name,email} = req.body
+        let {nombre,email} = req.body
         db.Clientes.update({
             nombre: nombre,
             email:email
