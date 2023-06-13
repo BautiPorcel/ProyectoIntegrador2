@@ -18,7 +18,6 @@ const controller = {
       res.render('indexx',{
           productos: data,
           productos2 : data,
-          usuarioLogueado: false,
           user: data.usuarios})
         })
       .catch(function(err){console.log(err)})

@@ -14,12 +14,6 @@ module.exports = function(sequelize,dataTypes){
             type: dataTypes.STRING,
             allowNull: false
         },
-        created_at:{
-            type: dataTypes.STRING,
-        },
-        update_at:{
-            type: dataTypes.STRING
-        },
         image:{
             type: dataTypes.STRING,
             allowNull: false

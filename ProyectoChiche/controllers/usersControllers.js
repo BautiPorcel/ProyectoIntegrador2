@@ -56,29 +56,52 @@ const controller = {
         let dni = req.body.dni
         let fecha_de_nacimiento = req.body.fecha_de_nacimiento
 
-        let passEncriptada = bcrypt.hashSync(contrasena, 12)
-        db.Clientes.create({
-            nombre,
-            email,
-            contrasena: passEncriptada,
-            dni,
-            foto_perfil,
-            fecha_de_nacimiento,
-           
-        })
+        if(!email){
+            return res.render("register", { error: "Email es un campo obligatorio" })
+          }
+        if(!contrasena & contrasena.length< 3){
+            return res.render("register", { error: "Contraseña debe tener al menos 3 letras" })
+          }
 
-        .then(function(resp){
-            console.log(resp)
-            res.redirect('/users/profile')
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-        
-    },
+        db.Clientes.findOne({
+            where: { email },
+            raw: true
+          })
+          .then(function(cliente) {
+            if (cliente) {
+              return res.render("register", { error: "Email ya está registrado" })
+            }
+
+            let passEncriptada = bcrypt.hashSync(contrasena, 12)
+            db.Clientes.create({
+              nombre,
+              email,
+              contrasena: passEncriptada,
+              dni,
+              foto_perfil,
+              fecha_de_nacimiento
+            })
+              .then(function(nuevoCliente){
+                console.log(nuevoCliente.id)
+                res.redirect("/users/login")
+              })
+              .catch(function(err){
+                console.log(err)
+              });
+          })
+          .catch(function(err){
+            console.log(err)
+          });
+      },
 
     checkUser: function(req,res){
         let {email,contrasena,remeberMe} = req.body
+        if(!email){
+            return res.render("login", { error: "Email es un campo obligatorio" })
+         }
+        if(!contrasena){
+            return res.render("login", { error: "Email es un campo obligatorio" })
+        }
         db.Clientes.findOne({
             where:{
                 email
@@ -104,8 +127,10 @@ const controller = {
                         id: cliente.id,
                         nombre: cliente.name,
                         email: cliente.email,
+                        
                     }
                 )
+                res.locals.usuarioLogueado = true;
             }
 
             res.redirect("/users/profile")
@@ -133,8 +158,6 @@ const controller = {
             console.log(err)
         })
     }
-
-    
 
 }
 
