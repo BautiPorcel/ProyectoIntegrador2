@@ -4,30 +4,43 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= productos.nombre %></h2> 
+			<h2 class="products-title"><%= producto.nombre %></h2> 
 			<p class="product-detail-description">
-				<a href="/prod/product-add">Agregar Producto</a>
+				<% if (usuarioLogueado) { %>
+					<a href="/prod/product-add">Agregar Producto</a>
+				  <% } else { %>
+					<a href="/users/login">Agregar Producto</a>
+				  <% } %>
+
+				  <% if (producto.clientes.nombre === usuario.nombre) { %>
+					<a href="/prod/product-edit">Editar</a>
+				  <% } %> 
 			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%=productos.image %>" alt="cafetera moulinex" class="product-detail-img">
-					<p class="product-detail-description"><%= productos.descripcion %></p>
+					<img src="<%=producto.image %>" alt="cafetera moulinex" class="product-detail-img">
+					<p class="product-detail-description"><%= producto.descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
-							<%for (let i=0; i<productos.length; i++){%>
+							<%for (let i=0; i<producto.length; i++){%>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile"><%= productos[i].comments[0].user %></a> </strong>
-								<%= productos[i].comments[0].comentario %></p>
+									<div>
+										<p>Aca abajo</p>
+									<p>Aca estoy</p><a href="/users/profile/<%= producto[i].comments[0].usuario.id %>"><%= producto[i].comments[0].usuario.nombre %></a>
+									</div>
+								<%= producto[i].comments[0].comentario %></p>
 							</div>
 						<% } %>
-
+						<p class="product-detail-description"><%= producto.descripcion %></p>
+						<p class="product-detail-description"><%= producto.clientes.nombre%></p>
 					</section>
+					<a href=""></a>
 					<form class="form" action="/prod/products" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>

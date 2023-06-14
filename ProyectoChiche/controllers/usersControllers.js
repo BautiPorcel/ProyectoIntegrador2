@@ -6,29 +6,45 @@ const bcrypt = require('bcryptjs')
 const controller = {
     login:function(req,res){
         res.render('login',{
-            usuarioLogueado: false,
             user: data.usuarios
         })
         },
 
     registrer: function(req,res){
         res.render('register',{
-            usuarioLogueado: false,
             user: data.usuarios
         })
         },
 
-    profile: function(req,res){
-        res.render("profile",{
-            productos: data.productos,
-            usuarioLogueado: true,
-            user: data.usuarios
-        })
-        },
+        profile: function(req, res) {
+            let id = req.session.usuario.id;
+          
+            db.Clientes.findByPk(id)
+              .then(function(usuario) {
+                db.Productos.findAll({
+                  where: {
+                    id_cliente: id
+                  }
+                })
+                  .then(function(productos) {
+                    res.render("profile", {
+                      usuario: usuario,
+                      productos: productos
+                    });
+                  })
+                  .catch(function(err) {
+                    console.log(err);
+                    res.render("error", { error: "Error al obtener los productos del usuario" });
+                  });
+              })
+              .catch(function(err) {
+                console.log(err);
+                res.render("error", { error: "Error al obtener el usuario" });
+              });
+          },
 
     profileEdit:function(req,res){
         res.render("profile-edit",{
-            usuarioLogueado: true,
             user: data.usuarios
         })
         },
@@ -51,29 +67,51 @@ const controller = {
         let dni = req.body.dni
         let fecha_de_nacimiento = req.body.fecha_de_nacimiento
 
-        let passEncriptada = bcrypt.hashSync(contrasena, 12)
-        db.Clientes.create({
-            nombre,
-            email,
-            contrasena: passEncriptada,
-            dni,
-            foto_perfil,
-            fecha_de_nacimiento,
-           
-        })
+        if(!email){
+            return res.render("register", { error: "Email es un campo obligatorio" })
+          }
+        if(!contrasena & contrasena.length< 3){
+            return res.render("register", { error: "Contraseña debe tener al menos 3 letras" })
+          }
 
-        .then( function(resp){
-            console.log(resp)
-            res.redirect('/users/profile')
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-        
-    },
+        db.Clientes.findOne({
+            where: { email },
+            raw: true
+          })
+          .then(function(cliente) {
+            if (cliente) {
+              return res.render("register", { error: "Email ya está registrado" })
+            }
+
+            let passEncriptada = bcrypt.hashSync(contrasena, 12)
+            db.Clientes.create({
+              nombre,
+              email,
+              contrasena: passEncriptada,
+              dni,
+              foto_perfil,
+              fecha_de_nacimiento
+            })
+              .then(function(nuevoCliente){
+                res.redirect("/users/login")
+              })
+              .catch(function(err){
+                console.log(err)
+              });
+          })
+          .catch(function(err){
+            console.log(err)
+          });
+      },
 
     checkUser: function(req,res){
-        let {email,contrasena,remeberMe} = req.body
+        let {email,contrasena,recordarme} = req.body
+        if(!email){
+            return res.render("login", { error: "Email es un campo obligatorio" })
+         }
+        if(!contrasena){
+            return res.render("login", { error: "Email es un campo obligatorio" })
+        }
         db.Clientes.findOne({
             where:{
                 email
@@ -83,23 +121,30 @@ const controller = {
         .then(function(cliente){
             let comparacionContrasena = bcrypt.compareSync(contrasena, cliente.contrasena)
             if(comparacionContrasena){
-                req.session.Clientes = {
+                req.session.usuario = {
                     id: cliente.id,
-                    nombre: cliente.name,
+                    nombre: cliente.nombre,
                     email: cliente.email,
                 }
-
-                if(remeberMe === "on"){
+                res.locals.usuario = req.session.usuario
+                console.log(res.locals.usuario)
+                console.log("arribita")
+                console.log(recordarme)
+                if(recordarme === "on"){
                     res.cookie(
-                        "redordarme",
+                        "acordarseUsuario",
                     {
                         id: cliente.id,
-                        nombre: cliente.name,
+                        nombre: cliente.nombre,
                         email: cliente.email,
-                    }
+      
+                    },
+                    {
+                        maxAge: 1000 * 60 * 15
+                    },
+                    console.log("Pase todo el if")
                 )
             }
-
             res.redirect("/users/profile")
             }
         })
@@ -109,7 +154,7 @@ const controller = {
     },
     update: function(req,res){
         let id = req.params.id
-        let {name,email} = req.body
+        let {nombre,email} = req.body
         db.Clientes.update({
             nombre: nombre,
             email:email
@@ -119,14 +164,12 @@ const controller = {
             }
         })
         .then(function(resp){
-            res.redirect("/users/profile"+ id)
+            res.redirect("/users/profile")
         })
         .catch(function(err){
             console.log(err)
         })
     }
-
-    
 
 }
 

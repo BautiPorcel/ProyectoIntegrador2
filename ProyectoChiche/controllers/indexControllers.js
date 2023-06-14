@@ -5,6 +5,7 @@ const op = db.Sequelize.Op
 const controller = {
     home:function(req,res){
       db.Productos.findAll({
+        order: [['created_at', 'DESC']],
         raw: true,
         nest: true,
         include:[
@@ -13,11 +14,10 @@ const controller = {
          ]
       })
     .then(function(data){
-      console.log(data)
+      //console.log(data)
       res.render('indexx',{
           productos: data,
           productos2 : data,
-          usuarioLogueado: false,
           user: data.usuarios})
         })
       .catch(function(err){console.log(err)})
@@ -26,7 +26,6 @@ const controller = {
       res.render('headerLogueado',{
           productos: data,
           productos2 : data,
-          usuarioLogueado: true,
           user: data.usuarios
       })
     },
@@ -38,7 +37,7 @@ const controller = {
       )},
 
     logout: function(req,res){
-      req.session.user = undefined
+      req.session.usuario = undefined
       res.redirect("/")
     }
 
