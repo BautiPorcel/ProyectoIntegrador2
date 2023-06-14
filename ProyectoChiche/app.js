@@ -31,7 +31,7 @@ app.use(session({
 
 app.use(function(req, res, next){
   console.log("Aca estan las cookies")
-  console.log(req.cookies.acordarseUsuario.id)
+  console.log(req.cookies.acordarseUsuario)
   console.log("Arriba")
   console.log(req.session.usuario)
   console.log("arriba")

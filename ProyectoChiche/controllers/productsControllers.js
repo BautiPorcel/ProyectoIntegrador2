@@ -8,7 +8,7 @@ const { Op } = require("sequelize")
 const controller = {
     products: function(req, res) {
         const id = req.params.id;
-        db.Productos.findByPk(id, { raw: true, include: 'clientes' })
+        db.Productos.findByPk(id, { include: 'clientes' })
           .then(function(data) {
             if (data) {
               const producto = data;
@@ -68,11 +68,6 @@ const controller = {
     },
     create:function(req,res){
 
-        //let tituloEncriptado = bcrypt.hashSync(req.body.nombre,25)
-
-        //let comparacion = bcrypt.compareSync('NoseporquePepe3000',tituloEncriptado)
-        //console.log(comparacion)
-
         db.Productos.create({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
@@ -84,6 +79,11 @@ const controller = {
         })
         .catch(function(err){
             console.log(err)
+        })
+    },
+    productsEdit: function (req,res){
+        res.render('product-edit',{
+            user: data.usuarios
         })
     }
 }
