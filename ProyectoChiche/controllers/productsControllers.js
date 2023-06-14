@@ -6,20 +6,29 @@ const { Op } = require("sequelize")
 
 
 const controller = {
-    products: function (req,res){
-        const id = req.params.id
-        db.Productos.findByPk(id,{raw: true})
-        .then(function(data){
-            res.render('product',{
-            //usuarioLogueado: false,
-            productos: data,
-            //user: data.usuarios
-            })
-        })
-        .catch(function(err){
-            console.log(err)
-        })
-    },
+    products: function(req, res) {
+        const id = req.params.id;
+      
+        db.Productos.findByPk(id, { raw: true, include: 'clientes' })
+          .then(function(data) {
+            if (data) {
+              const producto = data;
+              const creadorProducto = data.clientes;
+      
+              res.render('product', {
+                producto: producto,
+                creadorProducto: creadorProducto
+              });
+            } else {
+              res.render('error', { error: 'Producto no encontrado' });
+            }
+          })
+          .catch(function(err) {
+            console.log(err);
+            res.render('error', { error: 'Error al obtener el producto' });
+          });
+      },
+      
 
     serchResults: function (req,res){
         let loQueEstoyBuscando = req.query.search
@@ -45,7 +54,6 @@ const controller = {
             }
 
         res.render('search-results',{
-            usuarioLogueado: false,
             resultados: data,
             encontroResultados: encontroResultados,
             busqueda: loQueEstoyBuscando
@@ -59,16 +67,15 @@ const controller = {
 
     productsAdd: function (req,res){
         res.render('product-add',{
-            usuarioLogueado: true,
             user: data.usuarios
         })
     },
     create:function(req,res){
 
-        let tituloEncriptado = bcrypt.hashSync(req.body.nombre,25)
+        //let tituloEncriptado = bcrypt.hashSync(req.body.nombre,25)
 
-        let comparacion = bcrypt.compareSync('NoseporquePepe3000',tituloEncriptado)
-        console.log(comparacion)
+        //let comparacion = bcrypt.compareSync('NoseporquePepe3000',tituloEncriptado)
+        //console.log(comparacion)
 
         db.Productos.create({
             nombre: req.body.nombre,

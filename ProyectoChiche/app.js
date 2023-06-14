@@ -30,9 +30,13 @@ app.use(session({
 }))
 
 app.use(function(req, res, next){
+  console.log("Aca estan las cookies")
   console.log(req.cookies.acordarseUsuario)
+  console.log("Arriba")
+  console.log(req.session.usuario)
+  console.log("arriba")
 
-  if(req.session.usuario != undefined){
+  if(req.session.usuario !== undefined){
     res.locals.usuarioLogueado = true
     res.locals.usuario = req.session.usuario
   } else{
@@ -40,6 +44,8 @@ app.use(function(req, res, next){
   }
   return next()
 })
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

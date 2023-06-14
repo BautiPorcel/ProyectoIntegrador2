@@ -6,24 +6,21 @@ const bcrypt = require('bcryptjs')
 const controller = {
     login:function(req,res){
         res.render('login',{
-            usuarioLogueado: false,
             user: data.usuarios
         })
         },
 
     registrer: function(req,res){
         res.render('register',{
-            usuarioLogueado: false,
             user: data.usuarios
         })
         },
 
     profile: function(req,res){
-        let id = req.session.Clientes.id
+        let id = req.session.usuario.id
         db.Clientes.findByPk(id)
         .then(function(usuario){
         res.render("profile",{
-            usuarioLogueado: true,
             usuario: usuario})
         })
         .catch(function(err){
@@ -33,7 +30,6 @@ const controller = {
 
     profileEdit:function(req,res){
         res.render("profile-edit",{
-            usuarioLogueado: true,
             user: data.usuarios
         })
         },
@@ -110,25 +106,28 @@ const controller = {
         .then(function(cliente){
             let comparacionContrasena = bcrypt.compareSync(contrasena, cliente.contrasena)
             if(comparacionContrasena){
-                req.session.Clientes = {
+                req.session.usuario = {
                     id: cliente.id,
                     nombre: cliente.nombre,
                     email: cliente.email,
-
                 }
-                res.locals.usuario = req.session.Clientes
+                res.locals.usuario = req.session.usuario
+                console.log(res.locals.usuario)
+                console.log("arribita")
+                console.log(recordarme)
                 if(recordarme === "on"){
                     res.cookie(
                         "acordarseUsuario",
                     {
                         id: cliente.id,
-                        nombre: cliente.name,
+                        nombre: cliente.nombre,
                         email: cliente.email,
       
                     },
                     {
                         maxAge: 1000 * 60 * 15
-                    }
+                    },
+                    console.log("Pase todo el if")
                 )
             }
             res.redirect("/users/profile")
@@ -150,7 +149,7 @@ const controller = {
             }
         })
         .then(function(resp){
-            res.redirect("/users/profile"+ id)
+            res.redirect("/users/profile")
         })
         .catch(function(err){
             console.log(err)

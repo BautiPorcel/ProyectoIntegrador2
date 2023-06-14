@@ -14,7 +14,7 @@ const controller = {
          ]
       })
     .then(function(data){
-      console.log(data)
+      //console.log(data)
       res.render('indexx',{
           productos: data,
           productos2 : data,
@@ -26,7 +26,6 @@ const controller = {
       res.render('headerLogueado',{
           productos: data,
           productos2 : data,
-          usuarioLogueado: true,
           user: data.usuarios
       })
     },
@@ -38,7 +37,7 @@ const controller = {
       )},
 
     logout: function(req,res){
-      req.session.user = undefined
+      req.session.usuario = undefined
       res.redirect("/")
     }
 

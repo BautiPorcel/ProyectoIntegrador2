@@ -17,6 +17,10 @@ module.exports = function(sequelize,dataTypes){
         image:{
             type: dataTypes.STRING,
             allowNull: false
+        },
+        id_cliente: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
     }
 

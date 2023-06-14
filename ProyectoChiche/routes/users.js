@@ -14,6 +14,7 @@ router.get("/profile", function(req, res) {
 });
 
 router.get("/profile-edit", controller.profileEdit)
+router.post("/profile-edit", controller.update)
 
 //router.get("/infoDelUsuario", controller.usuarioInfo)
 
