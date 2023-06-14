@@ -11,9 +11,10 @@
 				  <% } else { %>
 					<a href="/users/login">Agregar Producto</a>
 				  <% } %>
-
-				  <% if (producto.clientes.nombre === usuario.nombre) { %>
-					<a href="/prod/product-edit">Editar</a>
+					 <% if (locals.usuario != undefined) { %>
+						<% if (producto.clientes.nombre === usuario.nombre) { %>
+							<a href="/prod/product-edit/<%= producto.id %>">Editar</a>
+						  <% } %> 
 				  <% } %> 
 			</p>
 		</div>
@@ -38,7 +39,7 @@
 							</div>
 						<% } %>
 						<p class="product-detail-description"><%= producto.descripcion %></p>
-						<p class="product-detail-description"><%= producto.clientes.nombre%></p>
+						<a href="/users/profile/<%=producto.clientes.id %>"><p class="product-detail-description"><%= producto.clientes.nombre%></p></a>
 					</section>
 					<a href=""></a>
 					<form class="form" action="/prod/products" method="get">

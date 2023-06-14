@@ -1,3 +1,4 @@
+const session = require('express-session')
 const data = require('../data/data')
 let db = require("../database/models/index")
 let op = db.Sequelize.Op
@@ -82,10 +83,45 @@ const controller = {
         })
     },
     productsEdit: function (req,res){
-        res.render('product-edit',{
-            user: data.usuarios
+        const id = req.params.id
+        db.Productos.findByPk(id, { include: 'clientes' })
+        .then(function(data) {
+            if (data) {
+              const producto = data;
+              const creadorProducto = data.clientes;
+      
+              res.render('product-edit', {
+                producto: producto,
+                creadorProducto: creadorProducto
+              });
+            } else {
+              res.render('error', { error: 'Producto no encontrado' });
+            }
+          })
+          .catch(function(err){console.log(err)})
+    },
+    update: function (req,res){
+        let id = req.params.id
+        console.log("Abajo esta el id")
+        console.log(id)
+        let {nombre,descripcion,image} = req.body
+        db.Productos.update({
+            nombre: nombre,
+            descripcion:descripcion,
+            image: image
+        },{
+            where:{
+                id:id
+            }
+        })
+        .then(function(resp){
+            res.redirect("/users/profile/"+ session.id)
+        })
+        .catch(function(err){
+            console.log(err)
         })
     }
+
 }
 
 module.exports = controller

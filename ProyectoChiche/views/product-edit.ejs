@@ -9,10 +9,10 @@
 				<h2 class="products-title">Editar mi producto</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<form action="profile" method="POST" >
-				<input type="text" name="email" placeholder="Email">
-				<input type="text" name="user" placeholder="Nombre Usuario">			
-				<input type="text" name="profile" placeholder="Foto">
+			<form action="/prod/product-edit/<%= producto.id %>" method="POST" >
+				<input type="text" name="nombre" placeholder="nombre">
+				<input type="text" name="descripcion" placeholder="Descripcion">			
+				<input type="text" name="image" placeholder="Foto">
 				<input type="submit">
 			</form>
 

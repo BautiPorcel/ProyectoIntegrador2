@@ -18,13 +18,10 @@ const controller = {
 
         profile: function(req, res) {
             let id = req.session.usuario.id;
-          
             db.Clientes.findByPk(id)
               .then(function(usuario) {
                 db.Productos.findAll({
-                  where: {
-                    id_cliente: id
-                  }
+                  where: {id_cliente: id},userId: id 
                 })
                   .then(function(productos) {
                     res.render("profile", {
@@ -110,7 +107,7 @@ const controller = {
             return res.render("login", { error: "Email es un campo obligatorio" })
          }
         if(!contrasena){
-            return res.render("login", { error: "Email es un campo obligatorio" })
+            return res.render("login", { error: "Contrasena es un campo obligatorio" })
         }
         db.Clientes.findOne({
             where:{
@@ -127,9 +124,6 @@ const controller = {
                     email: cliente.email,
                 }
                 res.locals.usuario = req.session.usuario
-                console.log(res.locals.usuario)
-                console.log("arribita")
-                console.log(recordarme)
                 if(recordarme === "on"){
                     res.cookie(
                         "acordarseUsuario",
@@ -145,7 +139,7 @@ const controller = {
                     console.log("Pase todo el if")
                 )
             }
-            res.redirect("/users/profile")
+            res.redirect("/users/profile/" + cliente.id)
             }
         })
         .catch(function(err){
