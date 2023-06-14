@@ -11,7 +11,7 @@ const controller = {
         db.Productos.findByPk(id,{raw: true})
         .then(function(data){
             res.render('product',{
-            usuarioLogueado: false,
+            //usuarioLogueado: false,
             productos: data,
             //user: data.usuarios
             })

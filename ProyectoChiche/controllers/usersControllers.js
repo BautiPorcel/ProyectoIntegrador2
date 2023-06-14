@@ -82,7 +82,6 @@ const controller = {
               fecha_de_nacimiento
             })
               .then(function(nuevoCliente){
-                console.log(nuevoCliente.id)
                 res.redirect("/users/login")
               })
               .catch(function(err){
@@ -95,7 +94,7 @@ const controller = {
       },
 
     checkUser: function(req,res){
-        let {email,contrasena,remeberMe} = req.body
+        let {email,contrasena,recordarme} = req.body
         if(!email){
             return res.render("login", { error: "Email es un campo obligatorio" })
          }
@@ -110,7 +109,6 @@ const controller = {
         })
         .then(function(cliente){
             let comparacionContrasena = bcrypt.compareSync(contrasena, cliente.contrasena)
-            console.log('Pasa por el then')
             if(comparacionContrasena){
                 req.session.Clientes = {
                     id: cliente.id,
@@ -119,20 +117,20 @@ const controller = {
 
                 }
                 res.locals.usuario = req.session.Clientes
-
-                if(remeberMe === "on"){
+                if(recordarme === "on"){
                     res.cookie(
-                        "redordarme",
+                        "acordarseUsuario",
                     {
                         id: cliente.id,
                         nombre: cliente.name,
                         email: cliente.email,
-                        
+      
+                    },
+                    {
+                        maxAge: 1000 * 60 * 15
                     }
                 )
-                res.locals.usuarioLogueado = true;
             }
-
             res.redirect("/users/profile")
             }
         })

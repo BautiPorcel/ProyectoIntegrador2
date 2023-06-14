@@ -30,11 +30,11 @@ app.use(session({
 }))
 
 app.use(function(req, res, next){
-  console.log(req.cookies.rememberMe)
+  console.log(req.cookies.acordarseUsuario)
 
-  if(req.session.user !== undefined){
+  if(req.session.usuario != undefined){
     res.locals.usuarioLogueado = true
-    res.locals.user = req.session.user
+    res.locals.usuario = req.session.usuario
   } else{
     res.locals.usuarioLogueado = false
   }
