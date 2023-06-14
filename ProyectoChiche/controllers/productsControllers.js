@@ -8,7 +8,6 @@ const { Op } = require("sequelize")
 const controller = {
     products: function(req, res) {
         const id = req.params.id;
-      
         db.Productos.findByPk(id, { raw: true, include: 'clientes' })
           .then(function(data) {
             if (data) {
@@ -29,41 +28,38 @@ const controller = {
           });
       },
       
-
-    serchResults: function (req,res){
-        let loQueEstoyBuscando = req.query.search
-
-        db.Productos.findAll({
-            where: {
-                [Op.or]: [
-                  { nombre: { [Op.like]: `%${loQueEstoyBuscando}%` } },
-                  { descripcion: { [Op.like]: `%${loQueEstoyBuscando}%` } }
-                ]
-              },
-              order: [['created_at', 'DESC']],
-            raw:true
-        })
-        .then(function(data){
-            let encontroResultados
-
-            console.log(data)
-            if (data.length > 0){
-                encontroResultados = true
-            } else {
-                encontroResultados= false
-            }
-
-        res.render('search-results',{
-            resultados: data,
-            encontroResultados: encontroResultados,
-            busqueda: loQueEstoyBuscando
-        })
-    })
-        .catch(function(err){
-            console.log(err)
-        })
+      serchResults: function (req, res) {
+        let loQueEstoyBuscando = req.query.search;
         
-    },
+        db.Productos.findAll({
+          where: {
+            [Op.or]: [
+              { nombre: { [Op.like]: `%${loQueEstoyBuscando}%` } },
+              { descripcion: { [Op.like]: `%${loQueEstoyBuscando}%` } }
+            ]
+          },
+          order: [['created_at', 'DESC']],
+          include: 'clientes' 
+        })
+          .then(function(data) {
+            let encontroResultados;
+            console.log(data);
+            if (data.length > 0) {
+              encontroResultados = true;
+            } else {
+              encontroResultados = false;
+            }
+      
+            res.render('search-results', {
+              resultados: data,
+              encontroResultados: encontroResultados,
+              busqueda: loQueEstoyBuscando,
+            });
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+      },
 
     productsAdd: function (req,res){
         res.render('product-add',{
@@ -80,7 +76,8 @@ const controller = {
         db.Productos.create({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
-            imagen: req.body.image
+            image: req.body.image,
+            id_cliente: req.cookies.acordarseUsuario.id
         })
         .then(function(data){
             res.redirect('/')

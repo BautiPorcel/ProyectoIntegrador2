@@ -6,7 +6,11 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= producto.nombre %></h2> 
 			<p class="product-detail-description">
-				<a href="/prod/product-add">Agregar Producto</a>
+				<% if (usuarioLogueado) { %>
+					<a href="/prod/product-add">Agregar Producto</a>
+				  <% } else { %>
+					<a href="/users/login">Agregar Producto</a>
+				  <% } %>
 			</p>
 		</div>
 		<div class="product-detail">
@@ -23,12 +27,14 @@
 							<div class="data">
 								<p class="user">
 									<div>
-									<a href="/users/profile/<%= producto[i].comments[0].user.id %>"><%= producto[i].comments[0].user.name %></a>
+										<p>Aca abajo</p>
+									<p>Aca estoy</p><a href="/users/profile/<%= producto[i].comments[0].usuario.id %>"><%= producto[i].comments[0].usuario.nombre %></a>
 									</div>
 								<%= producto[i].comments[0].comentario %></p>
 							</div>
 						<% } %>
-
+						<p class="product-detail-description"><%= producto.descripcion %></p>
+						<p class="product-detail-description"><%= creadorProducto%></p>
 					</section>
 					<a href=""></a>
 					<form class="form" action="/prod/products" method="get">

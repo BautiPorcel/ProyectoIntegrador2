@@ -16,17 +16,32 @@ const controller = {
         })
         },
 
-    profile: function(req,res){
-        let id = req.session.usuario.id
-        db.Clientes.findByPk(id)
-        .then(function(usuario){
-        res.render("profile",{
-            usuario: usuario})
-        })
-        .catch(function(err){
-            console.log(err)
-        })
-        },
+        profile: function(req, res) {
+            let id = req.session.usuario.id;
+          
+            db.Clientes.findByPk(id)
+              .then(function(usuario) {
+                db.Productos.findAll({
+                  where: {
+                    id_cliente: id
+                  }
+                })
+                  .then(function(productos) {
+                    res.render("profile", {
+                      usuario: usuario,
+                      productos: productos
+                    });
+                  })
+                  .catch(function(err) {
+                    console.log(err);
+                    res.render("error", { error: "Error al obtener los productos del usuario" });
+                  });
+              })
+              .catch(function(err) {
+                console.log(err);
+                res.render("error", { error: "Error al obtener el usuario" });
+              });
+          },
 
     profileEdit:function(req,res){
         res.render("profile-edit",{

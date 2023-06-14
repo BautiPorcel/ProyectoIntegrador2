@@ -18,7 +18,12 @@
 				</div>
 				<div>
 					<ul class="">
-						<li>8 productos</li>
+						<% if (productos.length > 0) { %>
+							<ul>
+							  <li><%=productos.length%> productos</li>
+						  <% } else { %>
+							<p>No se han cargado productos aún.</p>
+						  <% } %>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -35,9 +40,22 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-
 			<div class="col-12 col-sm-6 col-lg-3">
-				
+				<%for (let i=0; i<productos.length; i++){%>
+					<section class="product-box">
+						<a href="/prod/products/<%= productos[i].id%>">
+							<figure class="product-box_image">
+								<img src="<%=productos[i].image %>" alt="cafetera moulinex">
+							</figure>
+							<article class="product-box_data">
+								<h2><%=productos[i].nombre%></h2>
+								<p><%=productos[i].descripcion%></p>
+								<p><%=productos[i].precio%></p>
+								<p><%=productos[i].commments%></p>
+							</article>
+						</a>
+					</section>
+					<%}%>
 			</div>
 
 			<div class="col-12 col-sm-6 col-lg-3">
