@@ -18,26 +18,22 @@ const controller = {
 
         profile: function(req, res) {
             let id = req.params.id;
-            db.Clientes.findByPk(id)
-              .then(function(usuario) {
-                db.Productos.findAll({
-                  where: {id_cliente: id}, 
-                })
-                  .then(function(productos) {
+            db.Clientes.findByPk(id, {include:[
+                {association:'comentarios', 
+                    include:{association:'clientes'}
+                },{association:'productos'}
+          ]})
+             
+                  .then(function(data) {
                     res.render("profile", {
-                      usuario: usuario,
-                      productos: productos
+                      usuario: data
                     });
                   })
                   .catch(function(err) {
                     console.log(err);
-                    res.render("error", { error: "Error al obtener los productos del usuario" });
                   });
-              })
-              .catch(function(err) {
-                console.log(err);
-                res.render("error", { error: "Error al obtener el usuario" });
-              });
+              
+             
           },
 
     profileEdit:function(req,res){

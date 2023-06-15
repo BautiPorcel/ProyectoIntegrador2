@@ -18,9 +18,9 @@
 				</div>
 				<div>
 					<ul class="">
-						<% if (productos.length > 0) { %>
+						<% if (usuario.productos.length > 0) { %>
 							<ul>
-							  <li><%=productos.length%> productos</li>
+							  <li><%=usuario.productos.length%> productos</li>
 						  <% } else { %>
 							<p>No se han cargado productos todavia</p>
 						  <% } %>
@@ -41,17 +41,17 @@
 			</div>
 			<!-- Show mis productos -->
 			<div class="col-12 col-sm-6 col-lg-3">
-				<%for (let i=0; i<productos.length; i++){%>
+				<%for (let i=0; i<usuario.productos.length; i++){%>
 					<section class="product-box">
-						<a href="/prod/products/<%= productos[i].id%>">
+						<a href="/prod/products/<%= usuario.productos[i].id%>">
 							<figure class="product-box_image">
-								<img src="<%=productos[i].image %>" alt="cafetera moulinex">
+								<img src="<%=usuario.productos[i].image %>" alt="cafetera moulinex">
 							</figure>
 							<article class="product-box_data">
-								<h2><%=productos[i].nombre%></h2>
-								<p><%=productos[i].descripcion%></p>
-								<p><%=productos[i].precio%></p>
-								<p><%=productos[i].commments%></p>
+								<h2><%=usuario.productos[i].nombre%></h2>
+								<p><%=usuario.productos[i].descripcion%></p>
+								<p><%=usuario.productos[i].precio%></p>
+								<p><%=usuario.productos[i].commments%></p>
 							</article>
 						</a>
 					</section>

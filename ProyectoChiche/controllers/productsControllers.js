@@ -9,22 +9,24 @@ const { Op } = require("sequelize")
 const controller = {
     products: function(req, res) {
         const id = req.params.id;
-        db.Productos.findByPk(id,{ include: [{association: 'clientes' }, {association: 'comentarios'}]})
+        db.Productos.findByPk(id,{ include:[
+            {association:'comentarios', 
+                include:{association:'clientes'}
+            },{association:'clientes'}
+        ],order:[
+            ['comentarios','created_at','DESC']
+        ]})
           .then(function(data) {
-            if (data) {
               const producto = data;
-              const creadorProducto = data.clientes;
+              const cliente = data.clientes;
               const comentario = data.comentarios
-              console.log(producto)
-             
+
               res.render('product', {
                 producto: producto,
-                creadorProducto: creadorProducto,
-                comentarios: comentario
-              });
-            } else {
-              res.render('error', { error: 'Producto no encontrado' });
-            }
+                cliente: cliente,
+                comentario: comentario
+              })
+            
           })
           .catch(function(err) {
             console.log(err);
@@ -134,6 +136,22 @@ const controller = {
             console.log(err);
             res.render('error', { error: 'Error al borrar el producto' });
           });
+      },
+      addComment: function (req,res){
+        let comentario = req.body.comentario
+        let idUsuario = req.session.usuario.id
+
+        db.Comentarios.create({
+            comentario: comentario,
+            usuario_id: idUsuario,
+            id_post: req.body.id_post
+        })
+        .then(function(data){
+            res.redirect('/')
+        })
+        .catch(function(error){
+            console.log(error)
+        })
       }
 
 }
