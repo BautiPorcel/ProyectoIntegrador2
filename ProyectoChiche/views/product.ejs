@@ -42,7 +42,7 @@
 							</div>
 						<% } %>
 						<p class="product-detail-description"><%= producto.descripcion %></p>
-						<a href="/users/profile/<%=producto.clientes.id %>"><p class="product-detail-description"><%= producto.clientes.nombre%></p></a>
+						<a href="/users/profile/<%=producto.id_cliente %>"><p class="product-detail-description"><%= producto.clientes.nombre%></p></a>
 					</section>
 					<a href=""></a>
 					<form class="form" action="/prod/products" method="get">

@@ -9,15 +9,18 @@ const { Op } = require("sequelize")
 const controller = {
     products: function(req, res) {
         const id = req.params.id;
-        db.Productos.findByPk(id, { include: 'clientes' })
+        db.Productos.findByPk(id,{ include: [{association: 'clientes' }, {association: 'comentarios'}]})
           .then(function(data) {
             if (data) {
               const producto = data;
               const creadorProducto = data.clientes;
-      
+              const comentario = data.comentarios
+              console.log(producto)
+             
               res.render('product', {
                 producto: producto,
-                creadorProducto: creadorProducto
+                creadorProducto: creadorProducto,
+                comentarios: comentario
               });
             } else {
               res.render('error', { error: 'Producto no encontrado' });
