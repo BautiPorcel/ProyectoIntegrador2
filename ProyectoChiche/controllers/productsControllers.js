@@ -139,12 +139,12 @@ const controller = {
       },
       addComment: function (req,res){
         let comentario = req.body.comentario
-        let idUsuario = req.session.usuario.id
+        let id = req.session.usuario.id
 
         db.Comentarios.create({
             comentario: comentario,
-            usuario_id: idUsuario,
-            id_post: req.body.id_post
+            id_cliente: id,
+            //id_post: req.body.id_post
         })
         .then(function(data){
             res.redirect('/')

@@ -9,7 +9,13 @@ let cols = {
     comentario:{
         primareyKey: true,
         type: dataTypes.STRING
+    },
+    id_cliente:{
+        primareyKey: true,
+        type: dataTypes.INTEGER
     }
+
+
 }
 
 let config = {
