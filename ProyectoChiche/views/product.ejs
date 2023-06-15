@@ -58,7 +58,7 @@
 					<a href=""></a>
 					<%if(usuarioLogueado){%>
 						<form class="form" action="/prod/add-comment" method="POST">
-							<input class="form-input" type="text" value="" name="nombre" placeholder="Agregar comentario">
+							<input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
 							<input hidden name="id_post" type="text" value="<%=producto.id %>" > 
 							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 						</form>

@@ -144,7 +144,7 @@ const controller = {
         db.Comentarios.create({
             comentario: comentario,
             id_cliente: id,
-            //id_post: req.body.id_post
+            id_producto: req.body.id_post
         })
         .then(function(data){
             res.redirect('/')

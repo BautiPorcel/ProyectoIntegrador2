@@ -7,14 +7,18 @@ let cols = {
         type: dataTypes.INTEGER
     },
     comentario:{
-        primareyKey: true,
+        primaryKey: true,
         type: dataTypes.STRING
     },
     id_cliente:{
-        primareyKey: true,
+        primaryKey: true,
+        type: dataTypes.INTEGER
+    },
+    id_producto:{
+        primaryKey: true,
         type: dataTypes.INTEGER
     }
-
+    
 
 }
 
