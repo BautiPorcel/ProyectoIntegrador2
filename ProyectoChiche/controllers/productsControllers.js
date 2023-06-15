@@ -120,7 +120,18 @@ const controller = {
         .catch(function(err){
             console.log(err)
         })
-    }
+    },
+    borrarProducto: function(req, res) {
+        const id = req.params.id;
+        db.Productos.destroy({ where: { id: id } })
+          .then(function() {
+            res.redirect('/'); // O redirige a la página de productos o a donde desees después de borrar el producto
+          })
+          .catch(function(err) {
+            console.log(err);
+            res.render('error', { error: 'Error al borrar el producto' });
+          });
+      }
 
 }
 

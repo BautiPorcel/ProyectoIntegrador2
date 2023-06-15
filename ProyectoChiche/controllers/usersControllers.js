@@ -17,11 +17,11 @@ const controller = {
         },
 
         profile: function(req, res) {
-            let id = req.session.usuario.id;
+            let id = req.params.id;
             db.Clientes.findByPk(id)
               .then(function(usuario) {
                 db.Productos.findAll({
-                  where: {id_cliente: id},userId: id 
+                  where: {id_cliente: id}, 
                 })
                   .then(function(productos) {
                     res.render("profile", {

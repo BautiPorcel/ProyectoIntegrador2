@@ -11,6 +11,7 @@ router.post("/product-add/create",controller.create )
 
 router.get("/product-edit/:id", controller.productsEdit)
 router.post("/product-edit/:id", controller.update)
+router.post("/productDelete/:id", controller.borrarProducto)
 
 
 module.exports = router
