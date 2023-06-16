@@ -4,6 +4,7 @@ const op = db.Sequelize.Op
 const bcrypt = require('bcryptjs')
 
 const controller = {
+
     login:function(req,res){
         res.render('login',{
             user: data.usuarios
@@ -17,21 +18,22 @@ const controller = {
         },
 
         profile: function(req, res) {
-            let id = req.params.id;
+            let id = req.params.id
+
             db.Clientes.findByPk(id, {include:[
                 {association:'comentarios', 
                     include:{association:'clientes'}
                 },{association:'productos'}
           ]})
              
-                  .then(function(data) {
+                .then(function(data) {
                     res.render("profile", {
                       usuario: data
-                    });
+                    })
                   })
-                  .catch(function(err) {
-                    console.log(err);
-                  });
+                .catch(function(err) {
+                    console.log(err)
+                  })
               
              
           },
@@ -41,8 +43,9 @@ const controller = {
             user: data.usuarios
         })
         },
-    usuarioInfo: function(req,res){
 
+        //No esta en uso
+    usuarioInfo: function(req,res){
         const email = req.query.email
         const usuario = req.query.user
         const password = req.query.password
@@ -53,30 +56,36 @@ const controller = {
     },
 
     create: function(req,res){
+        //Se puede hacer de otra forma, pero lo hacemos asi para ver todas las formas
         let nombre = req.body.nombre
         let email = req.body.email
         let contrasena = req.body.contrasena
         let foto_perfil = req.body.foto_perfil
         let dni = req.body.dni
         let fecha_de_nacimiento = req.body.fecha_de_nacimiento
+        let errors = {}
 
-        if(!email){
-            return res.render("register", { error: "Email es un campo obligatorio" })
-          }
-        if(!contrasena & contrasena.length< 3){
-            return res.render("register", { error: "Contraseña debe tener al menos 3 letras" })
-          }
+            if(email == ""){
+                errors.message = "Falta completar el email"
+                res.locals.errors = errors
+                res.render("register")
+            }if(contrasena === "" & contrasena.length< 3){
+                errors.message = "Falta completar la contrasena"
+                res.locals.errors = errors
+                res.render("register")
+            }
 
         db.Clientes.findOne({
             where: { email },
-            raw: true
           })
+          
           .then(function(cliente) {
             if (cliente) {
               return res.render("register", { error: "Email ya está registrado" })
             }
 
             let passEncriptada = bcrypt.hashSync(contrasena, 12)
+
             db.Clientes.create({
               nombre,
               email,
@@ -90,36 +99,45 @@ const controller = {
               })
               .catch(function(err){
                 console.log(err)
-              });
+              })
           })
           .catch(function(err){
             console.log(err)
-          });
+          })
       },
 
     checkUser: function(req,res){
+
         let {email,contrasena,recordarme} = req.body
-        if(!email){
-            return res.render("login", { error: "Email es un campo obligatorio" })
-         }
-        if(!contrasena){
-            return res.render("login", { error: "Contrasena es un campo obligatorio" })
-        }
+
         db.Clientes.findOne({
             where:{
                 email
             },
-            raw:true
         })
+
         .then(function(cliente){
             let comparacionContrasena = bcrypt.compareSync(contrasena, cliente.contrasena)
+            let errors = ""
+            let falso = false
+
+            if(comparacionContrasena === falso){
+                errors.message = "la contraseña no es valida"
+                res.locals.errors = errors
+                return res.render("login")
+            }
+
             if(comparacionContrasena){
                 req.session.usuario = {
                     id: cliente.id,
                     nombre: cliente.nombre,
                     email: cliente.email,
                 }
+                //Se define el usuario
+
                 res.locals.usuario = req.session.usuario
+                //Se introduce el usuario en locals
+
                 if(recordarme === "on"){
                     res.cookie(
                         "acordarseUsuario",
@@ -132,16 +150,21 @@ const controller = {
                     {
                         maxAge: 1000 * 60 * 15
                     },
-                    console.log("Pase todo el if")
                 )
             }
+
             res.redirect("/users/profile/" + cliente.id)
             }
         })
         .catch(function(err){
             console.log(err)
+            let errores = {}
+            errores.message = "El mail ingresado no es valido"
+            res.locals.errors = errors
+            res.render("login")
         })
     },
+
     update: function(req,res){
         let id = req.params.id
         let {nombre,email} = req.body
