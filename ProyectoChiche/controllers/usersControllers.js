@@ -158,8 +158,8 @@ const controller = {
         })
         .catch(function(err){
             console.log(err)
-            let errores = {}
-            errores.message = "El mail ingresado no es valido"
+            let errors = {}
+            errors.message = "El mail ingresado no es valido"
             res.locals.errors = errors
             res.render("login")
         })
