@@ -6,7 +6,6 @@ const controller = {
     home:function(req,res){
       db.Productos.findAll({
         order: [['created_at', 'DESC']],
-        raw: true,
         nest: true,
         include:[
           {association: 'clientes'},

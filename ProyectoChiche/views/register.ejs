@@ -6,6 +6,9 @@
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
 			</div>  
+			<% if(locals.errors){ %>
+				<p><%= locals.errors.message%> </p>
+			<% } %> 
 			<!-- Show the "ultimos" products -->
 			<form action="register" method="post">
 				<input type="text" name="email" placeholder="Email">

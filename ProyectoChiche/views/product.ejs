@@ -11,9 +11,13 @@
 				  <% } else { %>
 					<a href="/users/login">Agregar Producto</a>
 				  <% } %>
-
-				  <% if (producto.clientes.nombre === usuario.nombre) { %>
-					<a href="/prod/product-edit">Editar</a>
+					 <% if (locals.usuario != undefined) { %>
+						<% if (producto.clientes.nombre === usuario.nombre) { %>
+							<a href="/prod/product-edit/<%= producto.id %>">Editar</a>
+							<form action="/prod/productDelete/<%= producto.id %>" method="POST">
+								<button type="submit">Borrar</button>
+							</form>
+						  <% } %> 
 				  <% } %> 
 			</p>
 		</div>
@@ -26,25 +30,38 @@
 				<div class="col-12 col-lg-4">
 					<section class="comments">
 						<article>
-							<%for (let i=0; i<producto.length; i++){%>
-							<img src="https://via.placeholder.com/35" alt="">
+							<%for (let i=0; i<1; i++){%>
 							<div class="data">
-								<p class="user">
-									<div>
-										<p>Aca abajo</p>
-									<p>Aca estoy</p><a href="/users/profile/<%= producto[i].comments[0].usuario.id %>"><%= producto[i].comments[0].usuario.nombre %></a>
-									</div>
-								<%= producto[i].comments[0].comentario %></p>
-							</div>
+								<section>
+								<a href="/prod/productos/<%=producto.id %>"></a>
+								<article>
+									<ul>
+										<%for (let l=0; l<comentario.length; l++){%>
+											<li>
+												<h3><a href="/users/profile/<%=comentario[l].id_cliente %>"><%=comentario[l].clientes.nombre %></a></h3>
+												<p><%=comentario[l].comentario %></p>
+											</li>
+											<% } %>
+									</ul>
+								</article>
+								</section>
 						<% } %>
-						<p class="product-detail-description"><%= producto.descripcion %></p>
-						<p class="product-detail-description"><%= producto.clientes.nombre%></p>
+						<p class="product-detail-description">Descripcion: <%= producto.descripcion %></p>
+						<a href="/users/profile/<%=producto.id_cliente %>"><p class="product-detail-description">Creador: <%= producto.clientes.nombre%></p></a>
 					</section>
 					<a href=""></a>
-					<form class="form" action="/prod/products" method="get">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
+					<%if(usuarioLogueado){%>
+						<form class="form" action="/prod/add-comment" method="POST">
+							<input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
+							<input hidden name="id_post" type="text" value="<%=producto.id %>" > 
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+					<% }else{ %> 
+						<form class="form" action="/users/login" method="POST">
+							<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+						<% } %>
 					<hr>
 				</div>
 			</div>

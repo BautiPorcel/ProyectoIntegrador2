@@ -6,6 +6,9 @@
 			<div class="col-12">
 				<h2 class="products-title">Ingresar</h2>
 			</div>
+			<% if(locals.errors){ %>
+				<p><%= locals.errors.message%> </p>
+			<% } %> 
 			<!-- Show the "ultimos" products -->
 			<form action="/users/login" method="POST">
 				<input type="text" name="email" placeholder="Email">
@@ -15,6 +18,7 @@
 				<br>
 				<input type="submit">
 			</form>
+		
 
 <%- include("./partials/footer") %>
 	
